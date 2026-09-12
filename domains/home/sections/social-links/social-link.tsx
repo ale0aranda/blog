@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import type { KeyboardEventHandler } from "react";
-import { useCallback } from "react";
+import type { KeyboardEventHandler } from 'react';
+import { useCallback } from 'react';
 
-import { useCopyFeedback } from "@/shared/hooks/use-copy-feedback";
-import { useHoverIntent } from "@/shared/hooks/use-hover-intent";
+import { useCopyFeedback } from '@/shared/hooks/use-copy-feedback';
+import { useHoverIntent } from '@/shared/hooks/use-hover-intent';
 
-import { SOCIAL_LINK_DELAY } from "./social-link.constants";
-import { socialLinkClass } from "./social-link.styles";
-import type { SocialLinkProps } from "./social-link.types";
-import { SocialPopover } from "./social-popover";
+import { SOCIAL_LINK_DELAY } from './social-link.constants';
+import { socialLinkClass } from './social-link.styles';
+import type { SocialLinkProps } from './social-link.types';
+import { SocialPopover } from './social-popover';
 
 export function SocialLink({ social }: SocialLinkProps) {
   const { href, label, external = false, copyValue } = social;
@@ -18,10 +18,10 @@ export function SocialLink({ social }: SocialLinkProps) {
     isActive: hovered,
     show,
     hide,
-    forceShow,
+    forceShow
   } = useHoverIntent({
     enterDelay: SOCIAL_LINK_DELAY.hoverEnter,
-    leaveDelay: SOCIAL_LINK_DELAY.hoverLeave,
+    leaveDelay: SOCIAL_LINK_DELAY.hoverLeave
   });
 
   const { isCopied, copy } = useCopyFeedback(SOCIAL_LINK_DELAY.copiedReset);
@@ -36,11 +36,11 @@ export function SocialLink({ social }: SocialLinkProps) {
 
   const handleKeyDown: KeyboardEventHandler<HTMLAnchorElement> = useCallback(
     (event) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         hide();
       }
     },
-    [hide],
+    [hide]
   );
 
   return (
@@ -54,8 +54,8 @@ export function SocialLink({ social }: SocialLinkProps) {
     >
       <a
         href={href}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener noreferrer' : undefined}
         onKeyDown={handleKeyDown}
         className={socialLinkClass}
       >

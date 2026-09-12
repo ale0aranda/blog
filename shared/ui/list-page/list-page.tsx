@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { SearchX } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { SearchX } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-import { useSearchFilter } from "@/shared/hooks/use-search-filter";
-import { FadeIn } from "@/shared/motion/components/fade-in";
-import { StaggerGroup } from "@/shared/motion/components/stagger-group";
-import type { ContentItem } from "@/shared/ui/content-list";
-import { ContentItem as ContentItemComponent } from "@/shared/ui/content-list/content-item";
+import { useSearchFilter } from '@/shared/hooks/use-search-filter';
+import { FadeIn } from '@/shared/motion/components/fade-in';
+import { StaggerGroup } from '@/shared/motion/components/stagger-group';
+import type { ContentItem } from '@/shared/ui/content-list';
+import { ContentItem as ContentItemComponent } from '@/shared/ui/content-list/content-item';
 
-import { ListPageHeader } from "./internal/list-page-header";
+import { ListPageHeader } from './internal/list-page-header';
 
 type ListPageProps = {
   title: string;
@@ -19,11 +19,11 @@ type ListPageProps = {
 };
 
 export function ListPage({ title, description, emptyLabel, items }: ListPageProps) {
-  const t = useTranslations("shared.listPage");
+  const t = useTranslations('shared.listPage');
   const { search, setSearch, filtered, debouncedSearch } = useSearchFilter(items, [
-    "title",
-    "description",
-    "tags",
+    'title',
+    'description',
+    'tags'
   ]);
 
   return (
@@ -56,7 +56,7 @@ export function ListPage({ title, description, emptyLabel, items }: ListPageProp
             <p className="text-sm text-fg">{emptyLabel}</p>
             {debouncedSearch.trim().length > 0 && (
               <p className="mt-0.5 text-sm text-muted">
-                {t("noMatchFor", { query: debouncedSearch.trim() })}
+                {t('noMatchFor', { query: debouncedSearch.trim() })}
               </p>
             )}
           </div>

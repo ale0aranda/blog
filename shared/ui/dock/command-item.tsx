@@ -1,8 +1,8 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-import { Command } from "cmdk";
+import { Command } from 'cmdk';
 
-import { dockItemClass, dockItemIconClass } from "./styles";
+import { dockItemClass, dockItemIconClass } from './styles';
 
 interface CommandItemRowProps {
   icon: ReactNode;
@@ -17,7 +17,7 @@ export function CommandItemRow({
   label,
   active = false,
   currentLabel,
-  onSelect,
+  onSelect
 }: CommandItemRowProps) {
   return (
     <Command.Item disabled={active} onSelect={onSelect} className={dockItemClass}>

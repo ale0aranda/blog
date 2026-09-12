@@ -8,8 +8,8 @@ function getFormatter(locale: string) {
   }
 
   const formatter = new Intl.DateTimeFormat(locale, {
-    month: "short",
-    day: "numeric",
+    month: 'short',
+    day: 'numeric'
   });
 
   formatters.set(locale, formatter);

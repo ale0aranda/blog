@@ -1,7 +1,7 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import { copyToClipboard } from "../lib/clipboard";
-import { useTimeout } from "./use-timeout";
+import { copyToClipboard } from '../lib/clipboard';
+import { useTimeout } from './use-timeout';
 
 interface UseCopyFeedbackReturn {
   isCopied: boolean;
@@ -25,11 +25,11 @@ export function useCopyFeedback(resetDelay = 1500): UseCopyFeedbackReturn {
 
       return true;
     },
-    [timer, resetDelay],
+    [timer, resetDelay]
   );
 
   return {
     isCopied,
-    copy,
+    copy
   };
 }

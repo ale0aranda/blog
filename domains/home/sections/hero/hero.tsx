@@ -1,9 +1,9 @@
-import { FadeIn } from "@/shared/motion/components/fade-in";
-import { StaggerGroup } from "@/shared/motion/components/stagger-group";
+import { FadeIn } from '@/shared/motion/components/fade-in';
+import { StaggerGroup } from '@/shared/motion/components/stagger-group';
 
-import { build } from "../../content/build";
-import { BuildBadge } from "./build-badge";
-import { HeroTitle } from "./hero-title";
+import { build } from '../../content/build';
+import { BuildBadge } from './build-badge';
+import { HeroTitle } from './hero-title';
 
 export function Hero() {
   return (

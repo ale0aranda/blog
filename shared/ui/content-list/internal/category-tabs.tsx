@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 
-import { cn } from "@/shared/lib/cn";
+import { cn } from '@/shared/lib/cn';
 
-import type { ContentCategory } from "../types";
+import type { ContentCategory } from '../types';
 
 type Props = {
   categories: ContentCategory[];
@@ -13,10 +13,10 @@ type Props = {
 };
 
 export function CategoryTabs({ categories, active, onChange }: Props) {
-  const t = useTranslations("shared.contentList");
+  const t = useTranslations('shared.contentList');
 
   return (
-    <nav aria-label={t("categories.label")}>
+    <nav aria-label={t('categories.label')}>
       <ul className="flex flex-wrap items-center gap-3">
         {categories.map((category, index) => (
           <li key={category.id} className="flex items-center gap-3">
@@ -29,10 +29,10 @@ export function CategoryTabs({ categories, active, onChange }: Props) {
             <button
               type="button"
               onClick={() => onChange(category.id)}
-              aria-current={active === category.id ? "page" : undefined}
+              aria-current={active === category.id ? 'page' : undefined}
               className={cn(
-                "rounded px-1 text-xs font-semibold uppercase tracking-widest transition-colors duration-200",
-                active === category.id ? "text-fg" : "text-muted hover:text-fg",
+                'rounded px-1 text-xs font-semibold uppercase tracking-widest transition-colors duration-200',
+                active === category.id ? 'text-fg' : 'text-muted hover:text-fg'
               )}
             >
               {category.label}

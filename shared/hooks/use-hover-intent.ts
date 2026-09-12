@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import { useTimeout } from "./use-timeout";
+import { useTimeout } from './use-timeout';
 
 interface UseHoverIntentOptions {
   enterDelay?: number;
@@ -16,7 +16,7 @@ interface UseHoverIntentReturn {
 
 export function useHoverIntent({
   enterDelay = 100,
-  leaveDelay = 100,
+  leaveDelay = 100
 }: UseHoverIntentOptions = {}): UseHoverIntentReturn {
   const [isActive, setIsActive] = useState(false);
 
@@ -43,6 +43,6 @@ export function useHoverIntent({
     isActive,
     show,
     hide,
-    forceShow,
+    forceShow
   };
 }

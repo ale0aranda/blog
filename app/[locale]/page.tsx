@@ -1,7 +1,7 @@
-import { buildActivityItemsByCategory } from "@/domains/home/content/activity-items";
-import { HomePage } from "@/domains/home/view";
-import { getAllPosts } from "@/domains/writing/lib/posts";
-import { postToContentItem } from "@/domains/writing/lib/to-content-item";
+import { buildActivityItemsByCategory } from '@/domains/home/content/activity-items';
+import { HomePage } from '@/domains/home/view';
+import { getAllPosts } from '@/domains/writing/lib/posts';
+import { postToContentItem } from '@/domains/writing/lib/to-content-item';
 
 type PageProps = {
   params: Promise<{ locale: string }>;

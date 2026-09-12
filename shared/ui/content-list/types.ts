@@ -1,4 +1,4 @@
-export type ViewMode = "default" | "compact";
+export type ViewMode = 'default' | 'compact';
 
 export type ContentItem = {
   id: string;
@@ -8,7 +8,7 @@ export type ContentItem = {
   date: string;
   icon?: string;
   tags?: string[];
-  type?: "project" | "writing";
+  type?: 'project' | 'writing';
 };
 
 export interface ContentCategory {

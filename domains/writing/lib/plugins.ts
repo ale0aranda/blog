@@ -1,8 +1,8 @@
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
-import type { PluggableList } from "unified";
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import type { PluggableList } from 'unified';
 
 export const remarkPlugins: PluggableList = [remarkGfm];
 
@@ -11,23 +11,23 @@ export const rehypePlugins: PluggableList = [
   [
     rehypeAutolinkHeadings,
     {
-      behavior: "wrap",
+      behavior: 'wrap',
       properties: {
-        className: ["anchor-link"],
-      },
-    },
+        className: ['anchor-link']
+      }
+    }
   ],
   [
     rehypePrettyCode,
     {
       theme: {
-        light: "github-light",
-        dark: "github-dark",
-        dracula: "dracula",
-        sepia: "solarized-light",
+        light: 'github-light',
+        dark: 'github-dark',
+        dracula: 'dracula',
+        sepia: 'solarized-light'
       },
       defaultColor: false,
-      keepBackground: false,
-    },
-  ],
+      keepBackground: false
+    }
+  ]
 ];

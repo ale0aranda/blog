@@ -1,8 +1,8 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import { cn } from "@/shared/lib/cn";
+import { cn } from '@/shared/lib/cn';
 
-interface ChipProps extends ComponentPropsWithoutRef<"span"> {
+interface ChipProps extends ComponentPropsWithoutRef<'span'> {
   icon?: ReactNode;
 }
 
@@ -11,8 +11,8 @@ export function Chip({ icon, children, className, ...props }: ChipProps) {
     <span
       {...props}
       className={cn(
-        "inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium",
-        className,
+        'inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium',
+        className
       )}
     >
       {icon}

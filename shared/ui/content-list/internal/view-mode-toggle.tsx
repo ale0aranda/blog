@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 
-import { cn } from "@/shared/lib/cn";
+import { cn } from '@/shared/lib/cn';
 
-import { VIEW_MODE_OPTIONS } from "../constants";
-import type { ViewMode } from "../types";
+import { VIEW_MODE_OPTIONS } from '../constants';
+import type { ViewMode } from '../types';
 
 type Props = {
   value: ViewMode;
@@ -13,20 +13,20 @@ type Props = {
 };
 
 export function ViewModeToggle({ value, onChange }: Props) {
-  const t = useTranslations("shared.contentList");
+  const t = useTranslations('shared.contentList');
 
   return (
     <fieldset className="flex items-center gap-1 border-0 p-0">
-      <legend className="sr-only">{t("view.label")}</legend>
+      <legend className="sr-only">{t('view.label')}</legend>
 
       {VIEW_MODE_OPTIONS.map(({ value: option, icon: Icon, messageKey }) => (
         <label
           key={option}
           className={cn(
-            "flex size-7 cursor-pointer items-center justify-center rounded-md transition-all duration-200",
+            'flex size-7 cursor-pointer items-center justify-center rounded-md transition-all duration-200',
             value === option
-              ? "bg-surface text-accent shadow-sm"
-              : "text-muted hover:bg-surface hover:text-fg",
+              ? 'bg-surface text-accent shadow-sm'
+              : 'text-muted hover:bg-surface hover:text-fg'
           )}
         >
           <input

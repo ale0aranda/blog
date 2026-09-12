@@ -1,7 +1,7 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from 'node:fs';
+import path from 'node:path';
 
-import { LOCALE_PATTERN, POSTS_DIR, SLUG_PATTERN } from "./constants";
+import { LOCALE_PATTERN, POSTS_DIR, SLUG_PATTERN } from './constants';
 
 function assertValidLocale(locale: string): void {
   if (!LOCALE_PATTERN.test(locale)) {
@@ -20,8 +20,8 @@ export function getPostSlugs(locale: string): string[] {
 
   return fs
     .readdirSync(dir)
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => file.replace(/\.mdx$/, ""));
+    .filter((file) => file.endsWith('.mdx'))
+    .map((file) => file.replace(/\.mdx$/, ''));
 }
 
 export function readPostFile(locale: string, slug: string): string {
@@ -38,5 +38,5 @@ export function readPostFile(locale: string, slug: string): string {
     throw new Error(`Invalid slug: ${slug}`);
   }
 
-  return fs.readFileSync(filePath, "utf8");
+  return fs.readFileSync(filePath, 'utf8');
 }

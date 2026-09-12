@@ -1,7 +1,7 @@
-import type { Variants } from "framer-motion";
+import type { Variants } from 'framer-motion';
 
-import { DURATION } from "../tokens/durations";
-import { EASE_OUT } from "../tokens/easings";
+import { DURATION } from '../tokens/durations';
+import { EASE_OUT } from '../tokens/easings';
 
 export type EntranceOptions = {
   y?: number;
@@ -12,12 +12,12 @@ export type EntranceOptions = {
 export function entrance({
   y = 10,
   duration = DURATION.slow,
-  delay = 0,
+  delay = 0
 }: EntranceOptions = {}): Variants {
   return {
     hidden: {
       opacity: 0,
-      y,
+      y
     },
 
     show: {
@@ -27,8 +27,8 @@ export function entrance({
       transition: {
         duration,
         delay,
-        ease: EASE_OUT,
-      },
-    },
+        ease: EASE_OUT
+      }
+    }
   };
 }

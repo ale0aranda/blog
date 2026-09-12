@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 type UseCurrentTimeOptions = {
   timeZone: string;
@@ -22,15 +22,15 @@ export function useCurrentTime({ timeZone, updateIntervalMs = 1000 }: UseCurrent
 
   if (!time) return null;
 
-  const formatter = new Intl.DateTimeFormat("en-US", {
+  const formatter = new Intl.DateTimeFormat('en-US', {
     timeZone,
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
   });
 
   return {
     formatted: formatter.format(time),
-    iso: time.toISOString(),
+    iso: time.toISOString()
   };
 }

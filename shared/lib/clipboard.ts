@@ -8,7 +8,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     return true;
   } catch (error) {
     // biome-ignore lint/suspicious/noConsole: intentional error surface for a failed clipboard write, not debug leftover
-    console.error("Could not copy to clipboard:", error);
+    console.error('Could not copy to clipboard:', error);
     return false;
   }
 }

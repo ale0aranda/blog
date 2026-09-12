@@ -1,19 +1,19 @@
-import { notFound } from "next/navigation";
-import type { ReactNode } from "react";
+import { notFound } from 'next/navigation';
+import type { ReactNode } from 'react';
 
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 
-import { sfMono, sfPro } from "@/config/fonts";
+import { sfMono, sfPro } from '@/config/fonts';
 
-import { routing } from "@/i18n/routing";
+import { routing } from '@/i18n/routing';
 
-import { cn } from "@/shared/lib/cn";
-import { Providers } from "@/shared/providers/providers";
-import "../globals.css";
+import { cn } from '@/shared/lib/cn';
+import { Providers } from '@/shared/providers/providers';
+import '../globals.css';
 
-import { JsonLd, metadata, personJsonLd, websiteJsonLd } from "@/shared/seo";
-import { Dock } from "@/shared/ui/dock/dock";
+import { JsonLd, metadata, personJsonLd, websiteJsonLd } from '@/shared/seo';
+import { Dock } from '@/shared/ui/dock/dock';
 
 export { metadata };
 

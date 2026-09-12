@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { site } from "../../config/site";
+import { site } from '../../config/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
 
   title: {
     default: site.title,
-    template: `%s · ${site.title}`,
+    template: `%s · ${site.title}`
   },
 
   description: site.description,
@@ -16,50 +16,50 @@ export const metadata: Metadata = {
 
   authors: [
     {
-      name: site.author,
-    },
+      name: site.author
+    }
   ],
 
   creator: site.author,
 
   keywords: [
-    "Alejandro Aranda",
-    "Student",
-    "Software Engineering",
-    "Cybersecurity",
-    "Pentesting",
-    "Linux",
-    "Python",
-    "TypeScript",
-    "Next.js",
-    "Open Source",
+    'Alejandro Aranda',
+    'Student',
+    'Software Engineering',
+    'Cybersecurity',
+    'Pentesting',
+    'Linux',
+    'Python',
+    'TypeScript',
+    'Next.js',
+    'Open Source'
   ],
 
   alternates: {
-    canonical: "/",
+    canonical: '/'
   },
 
   openGraph: {
-    type: "website",
+    type: 'website',
     locale: site.locale,
     url: site.url,
     siteName: site.name,
     title: site.title,
-    description: site.description,
+    description: site.description
   },
 
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: site.title,
-    description: site.description,
+    description: site.description
   },
 
   robots: {
     index: true,
-    follow: true,
+    follow: true
   },
 
   icons: {
-    icon: "/favicon.ico",
-  },
+    icon: '/favicon.ico'
+  }
 };

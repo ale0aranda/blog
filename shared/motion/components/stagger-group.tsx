@@ -1,47 +1,47 @@
-"use client";
+'use client';
 
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-import { inView } from "../config";
-import type { StaggerOptions } from "../variants/container";
-import { staggerContainer } from "../variants/container";
-import type { MotionTagName } from "./motion-tag";
-import { MOTION_TAGS } from "./motion-tag";
+import { inView } from '../config';
+import type { StaggerOptions } from '../variants/container';
+import { staggerContainer } from '../variants/container';
+import type { MotionTagName } from './motion-tag';
+import { MOTION_TAGS } from './motion-tag';
 
 type StaggerGroupProps = {
   as?: MotionTagName;
-  animate?: "view" | "mount";
+  animate?: 'view' | 'mount';
   className?: string;
   children: ReactNode;
 } & StaggerOptions;
 
 export function StaggerGroup({
-  as = "div",
-  animate = "view",
+  as = 'div',
+  animate = 'view',
   delayChildren,
   staggerChildren,
   className,
-  children,
+  children
 }: StaggerGroupProps) {
   const MotionTag = MOTION_TAGS[as];
 
   const variants = staggerContainer({
     ...(delayChildren !== undefined && {
-      delayChildren,
+      delayChildren
     }),
     ...(staggerChildren !== undefined && {
-      staggerChildren,
-    }),
+      staggerChildren
+    })
   });
 
   const animationProps =
-    animate === "mount"
+    animate === 'mount'
       ? {
-          animate: "show" as const,
+          animate: 'show' as const
         }
       : {
-          whileInView: "show" as const,
-          viewport: inView,
+          whileInView: 'show' as const,
+          viewport: inView
         };
 
   return (

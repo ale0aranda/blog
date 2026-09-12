@@ -1,30 +1,30 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 
-import { DividerReveal } from "@/shared/motion/components/divider-reveal";
-import { FadeIn } from "@/shared/motion/components/fade-in";
-import { StaggerGroup } from "@/shared/motion/components/stagger-group";
+import { DividerReveal } from '@/shared/motion/components/divider-reveal';
+import { FadeIn } from '@/shared/motion/components/fade-in';
+import { StaggerGroup } from '@/shared/motion/components/stagger-group';
 
-import { ContentCompactItem } from "./content-compact-item";
-import { ContentItem } from "./content-item";
-import { CategoryTabs } from "./internal/category-tabs";
-import { ViewAllLink } from "./internal/view-all-link";
-import { ViewModeToggle } from "./internal/view-mode-toggle";
-import { contentListStyles } from "./styles";
-import type { ContentListProps } from "./types";
+import { ContentCompactItem } from './content-compact-item';
+import { ContentItem } from './content-item';
+import { CategoryTabs } from './internal/category-tabs';
+import { ViewAllLink } from './internal/view-all-link';
+import { ViewModeToggle } from './internal/view-mode-toggle';
+import { contentListStyles } from './styles';
+import type { ContentListProps } from './types';
 
 export function ContentList({
   categories,
   itemsByCategory,
   defaultCategory,
-  defaultViewMode = "default",
+  defaultViewMode = 'default'
 }: ContentListProps) {
-  const t = useTranslations("shared.contentList");
+  const t = useTranslations('shared.contentList');
 
-  const [activeCategory, setActiveCategory] = useState(defaultCategory ?? categories[0]?.id ?? "");
+  const [activeCategory, setActiveCategory] = useState(defaultCategory ?? categories[0]?.id ?? '');
 
   const [viewMode, setViewMode] = useState(defaultViewMode);
 
@@ -33,7 +33,7 @@ export function ContentList({
   const activeCategoryData = categories.find((category) => category.id === activeCategory);
 
   return (
-    <section className="mt-10" aria-label={t("categories.label")}>
+    <section className="mt-10" aria-label={t('categories.label')}>
       <FadeIn as="header" animate="mount">
         <header className="mb-4 flex items-center justify-between">
           <CategoryTabs
@@ -43,7 +43,7 @@ export function ContentList({
           />
 
           <div className="flex items-center gap-4">
-            <ViewAllLink href={activeCategoryData?.href ?? "#"} />
+            <ViewAllLink href={activeCategoryData?.href ?? '#'} />
 
             <ViewModeToggle value={viewMode} onChange={setViewMode} />
           </div>
@@ -61,7 +61,7 @@ export function ContentList({
         {items.length > 0 ? (
           items.map((item) => (
             <FadeIn as="li" animate="mount" key={item.id}>
-              {viewMode === "default" ? (
+              {viewMode === 'default' ? (
                 <ContentItem item={item} />
               ) : (
                 <ContentCompactItem item={item} />
@@ -70,7 +70,7 @@ export function ContentList({
           ))
         ) : (
           <FadeIn as="li" animate="mount" className="py-6 text-sm text-muted">
-            {t("empty.label")}
+            {t('empty.label')}
           </FadeIn>
         )}
       </StaggerGroup>

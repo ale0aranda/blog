@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import { cn } from "@/shared/lib/cn";
-import { Chip } from "@/shared/ui/chip";
+import { cn } from '@/shared/lib/cn';
+import { Chip } from '@/shared/ui/chip';
 
-import { BUILD_CHIP_CLASS, BUILD_ICONS } from "./build-badge.constants";
-import type { BuildInfo } from "./build-badge.types";
-import { shortBranchName } from "./build-badge.utils";
+import { BUILD_CHIP_CLASS, BUILD_ICONS } from './build-badge.constants';
+import type { BuildInfo } from './build-badge.types';
+import { shortBranchName } from './build-badge.utils';
 
 interface BuildBadgeProps {
   build: BuildInfo;
 }
 
 const tooltipPosition = cn(
-  "absolute left-1/2 top-full mt-2 -translate-x-1/2",
-  "sm:left-full sm:top-1/2 sm:ml-2 sm:mt-0",
-  "sm:translate-x-0 sm:-translate-y-1/2",
+  'absolute left-1/2 top-full mt-2 -translate-x-1/2',
+  'sm:left-full sm:top-1/2 sm:ml-2 sm:mt-0',
+  'sm:translate-x-0 sm:-translate-y-1/2'
 );
 
 const tooltipClassName = cn(
-  "z-50 flex w-max items-center gap-2",
-  "pointer-events-none opacity-0 transition-all duration-200",
-  "group-hover:pointer-events-auto group-hover:opacity-100",
-  "group-focus-within:pointer-events-auto group-focus-within:opacity-100",
+  'z-50 flex w-max items-center gap-2',
+  'pointer-events-none opacity-0 transition-all duration-200',
+  'group-hover:pointer-events-auto group-hover:opacity-100',
+  'group-focus-within:pointer-events-auto group-focus-within:opacity-100'
 );
 
 export function BuildBadge({ build }: BuildBadgeProps) {

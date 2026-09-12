@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useParams } from "next/navigation";
+import { useParams } from 'next/navigation';
 
-import { useLocale } from "next-intl";
+import { useLocale } from 'next-intl';
 
-import type { Locale } from "@/i18n/locale";
-import { getNextLocale } from "@/i18n/locale";
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { replaceStaticLocale, replaceWritingPostLocale } from "@/i18n/navigation-routes";
-import { routing } from "@/i18n/routing";
+import type { Locale } from '@/i18n/locale';
+import { getNextLocale } from '@/i18n/locale';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { replaceStaticLocale, replaceWritingPostLocale } from '@/i18n/navigation-routes';
+import { routing } from '@/i18n/routing';
 
 export function useLocaleSwitcher() {
   const currentLocale = useLocale() as Locale;
@@ -22,7 +22,7 @@ export function useLocaleSwitcher() {
 
   function switchLocale(locale: Locale) {
     switch (pathname) {
-      case "/writing/[slug]":
+      case '/writing/[slug]':
         if (!params.slug) {
           return;
         }
@@ -39,6 +39,6 @@ export function useLocaleSwitcher() {
     currentLocale,
     availableLocales,
     nextLocale,
-    switchLocale,
+    switchLocale
   };
 }

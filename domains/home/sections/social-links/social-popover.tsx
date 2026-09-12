@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { Check, Copy, ExternalLink } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { Check, Copy, ExternalLink } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-import { cn } from "@/shared/lib/cn";
+import { cn } from '@/shared/lib/cn';
 
-import { socialActionClass } from "./social-link.styles";
+import { socialActionClass } from './social-link.styles';
 
 interface SocialPopoverProps {
   open: boolean;
@@ -22,9 +22,9 @@ export function SocialPopover({
   href,
   onCopy,
   onMouseEnter,
-  onMouseLeave,
+  onMouseLeave
 }: SocialPopoverProps) {
-  const t = useTranslations("home.social");
+  const t = useTranslations('home.social');
 
   if (!open) {
     return null;
@@ -41,11 +41,11 @@ export function SocialPopover({
         <div className="flex items-stretch">
           <button
             type="button"
-            onClick={() => window.open(href, "_blank", "noopener,noreferrer")}
-            className={cn(socialActionClass, "text-muted hover:bg-bg hover:text-fg")}
+            onClick={() => window.open(href, '_blank', 'noopener,noreferrer')}
+            className={cn(socialActionClass, 'text-muted hover:bg-bg hover:text-fg')}
           >
             <ExternalLink className="size-3 shrink-0" />
-            <span className="lowercase">{t("actions.open")}</span>
+            <span className="lowercase">{t('actions.open')}</span>
           </button>
 
           <div aria-hidden="true" className="my-1 w-px bg-border" />
@@ -56,7 +56,7 @@ export function SocialPopover({
             aria-live="polite"
             className={cn(
               socialActionClass,
-              copied ? "bg-success/10 text-success" : "text-muted hover:bg-bg hover:text-fg",
+              copied ? 'bg-success/10 text-success' : 'text-muted hover:bg-bg hover:text-fg'
             )}
           >
             {copied ? (
@@ -64,7 +64,7 @@ export function SocialPopover({
             ) : (
               <Copy className="size-3 shrink-0" />
             )}
-            <span className="lowercase">{copied ? t("actions.copied") : t("actions.copy")}</span>
+            <span className="lowercase">{copied ? t('actions.copied') : t('actions.copy')}</span>
           </button>
         </div>
       </div>

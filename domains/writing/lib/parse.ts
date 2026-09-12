@@ -1,8 +1,8 @@
-import matter from "gray-matter";
-import readingTime from "reading-time";
+import matter from 'gray-matter';
+import readingTime from 'reading-time';
 
-import type { Post, PostFrontmatter } from "./post";
-import { assertValidFrontmatter } from "./post";
+import type { Post, PostFrontmatter } from './post';
+import { assertValidFrontmatter } from './post';
 
 export function parsePost(locale: string, slug: string, source: string): Post {
   const parsed = matter(source);
@@ -15,6 +15,6 @@ export function parsePost(locale: string, slug: string, source: string): Post {
     locale,
     content: parsed.content,
     frontmatter: data,
-    readingTime: readingTime(parsed.content).text,
+    readingTime: readingTime(parsed.content).text
   };
 }

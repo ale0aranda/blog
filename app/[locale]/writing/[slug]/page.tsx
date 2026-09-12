@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { site } from "@/config/site";
+import { site } from '@/config/site';
 
-import { routing } from "@/i18n/routing";
+import { routing } from '@/i18n/routing';
 
-import { getAllPosts, getPostBySlug } from "@/domains/writing/lib/posts";
-import { PostView } from "@/domains/writing/post/post-view";
+import { getAllPosts, getPostBySlug } from '@/domains/writing/lib/posts';
+import { PostView } from '@/domains/writing/post/post-view';
 
 type PostPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -13,7 +13,7 @@ type PostPageProps = {
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
-    getAllPosts(locale).map((post) => ({ locale, slug: post.slug })),
+    getAllPosts(locale).map((post) => ({ locale, slug: post.slug }))
   );
 }
 
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
   const url = `${site.url}/${locale}/writing/${slug}`;
   const image = post.frontmatter.image
-    ? post.frontmatter.image.startsWith("http")
+    ? post.frontmatter.image.startsWith('http')
       ? post.frontmatter.image
       : `${site.url}${post.frontmatter.image}`
     : undefined;
@@ -44,25 +44,25 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       canonical: url,
       languages: {
         en: `${site.url}/en/writing/${slug}`,
-        es: `${site.url}/es/writing/${slug}`,
-      },
+        es: `${site.url}/es/writing/${slug}`
+      }
     },
     openGraph: {
-      type: "article",
+      type: 'article',
       url,
       title: post.frontmatter.title,
       description: post.frontmatter.description,
       publishedTime: post.frontmatter.date,
       authors: [site.author],
       tags: post.frontmatter.tags,
-      ...(image && { images: [{ url: image }] }),
+      ...(image && { images: [{ url: image }] })
     },
     twitter: {
-      card: image ? "summary_large_image" : "summary",
+      card: image ? 'summary_large_image' : 'summary',
       title: post.frontmatter.title,
       description: post.frontmatter.description,
-      ...(image && { images: [image] }),
-    },
+      ...(image && { images: [image] })
+    }
   };
 }
 

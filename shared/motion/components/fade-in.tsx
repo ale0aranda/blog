@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-import { inView } from "../config";
-import { useEntranceVariants } from "../hooks/use-reduced-motion-safe";
-import type { MotionTagName } from "./motion-tag";
-import { MOTION_TAGS } from "./motion-tag";
+import { inView } from '../config';
+import { useEntranceVariants } from '../hooks/use-reduced-motion-safe';
+import type { MotionTagName } from './motion-tag';
+import { MOTION_TAGS } from './motion-tag';
 
 type FadeInProps = {
   as?: MotionTagName;
-  animate?: "view" | "mount";
+  animate?: 'view' | 'mount';
   y?: number;
   delay?: number;
   duration?: number;
@@ -18,30 +18,30 @@ type FadeInProps = {
 };
 
 export function FadeIn({
-  as = "div",
-  animate = "view",
+  as = 'div',
+  animate = 'view',
   y,
   delay,
   duration,
   className,
-  children,
+  children
 }: FadeInProps) {
   const MotionTag = MOTION_TAGS[as];
 
   const variants = useEntranceVariants({
     ...(y !== undefined && { y }),
     ...(delay !== undefined && { delay }),
-    ...(duration !== undefined && { duration }),
+    ...(duration !== undefined && { duration })
   });
 
   const animationProps =
-    animate === "mount"
+    animate === 'mount'
       ? {
-          animate: "show" as const,
+          animate: 'show' as const
         }
       : {
-          whileInView: "show" as const,
-          viewport: inView,
+          whileInView: 'show' as const,
+          viewport: inView
         };
 
   return (

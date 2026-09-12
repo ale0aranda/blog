@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export const MOTION_TAGS = {
   div: motion.div,
@@ -12,7 +12,7 @@ export const MOTION_TAGS = {
   ul: motion.ul,
   li: motion.li,
   p: motion.p,
-  footer: motion.footer,
+  footer: motion.footer
 } as const;
 
 export type MotionTagName = keyof typeof MOTION_TAGS;

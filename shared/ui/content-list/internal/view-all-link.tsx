@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 
-import { useHoverIntent } from "@/shared/hooks/use-hover-intent";
-import { cn } from "@/shared/lib/cn";
+import { useHoverIntent } from '@/shared/hooks/use-hover-intent';
+import { cn } from '@/shared/lib/cn';
 
 type Props = {
   href: string;
@@ -11,13 +11,13 @@ type Props = {
 };
 
 export function ViewAllLink({ href, label }: Props) {
-  const t = useTranslations("shared.contentList");
+  const t = useTranslations('shared.contentList');
 
-  const resolvedLabel = label ?? t("viewAll.label");
+  const resolvedLabel = label ?? t('viewAll.label');
 
   const { isActive, show, hide } = useHoverIntent({
     enterDelay: 50,
-    leaveDelay: 50,
+    leaveDelay: 50
   });
 
   return (
@@ -33,8 +33,8 @@ export function ViewAllLink({ href, label }: Props) {
       <span
         aria-hidden
         className={cn(
-          "-translate-x-1 transition-all duration-150",
-          isActive ? "translate-x-0 opacity-100" : "opacity-0",
+          '-translate-x-1 transition-all duration-150',
+          isActive ? 'translate-x-0 opacity-100' : 'opacity-0'
         )}
       >
         /

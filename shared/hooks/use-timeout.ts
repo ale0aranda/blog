@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from 'react';
 
 interface UseTimeoutReturn {
   set: (callback: () => void, delay: number) => void;
@@ -26,13 +26,13 @@ export function useTimeout(): UseTimeoutReturn {
         callback();
       }, delay);
     },
-    [clear],
+    [clear]
   );
 
   useEffect(() => clear, [clear]);
 
   return {
     set,
-    clear,
+    clear
   };
 }

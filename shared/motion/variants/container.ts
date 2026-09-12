@@ -1,4 +1,4 @@
-import type { Variants } from "framer-motion";
+import type { Variants } from 'framer-motion';
 
 export type StaggerOptions = {
   delayChildren?: number;
@@ -7,7 +7,7 @@ export type StaggerOptions = {
 
 export function staggerContainer({
   delayChildren = 0.12,
-  staggerChildren = 0.16,
+  staggerChildren = 0.16
 }: StaggerOptions = {}): Variants {
   return {
     hidden: {},
@@ -15,8 +15,8 @@ export function staggerContainer({
     show: {
       transition: {
         delayChildren,
-        staggerChildren,
-      },
-    },
+        staggerChildren
+      }
+    }
   };
 }

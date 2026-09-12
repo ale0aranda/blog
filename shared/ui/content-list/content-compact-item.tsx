@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useLocale } from "next-intl";
+import { useLocale } from 'next-intl';
 
-import { contentListStyles } from "./styles";
-import type { ContentItem as Item } from "./types";
-import { formatItemDate } from "./utils";
+import { contentListStyles } from './styles';
+import type { ContentItem as Item } from './types';
+import { formatItemDate } from './utils';
 
 type ContentCompactItemProps = {
   item: Item;

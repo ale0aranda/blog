@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useId } from "react";
+import { useId } from 'react';
 
-import { ArrowLeft, Search, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { ArrowLeft, Search, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-import { Link } from "@/i18n/navigation";
+import { Link } from '@/i18n/navigation';
 
-import { DividerReveal } from "@/shared/motion/components/divider-reveal";
+import { DividerReveal } from '@/shared/motion/components/divider-reveal';
 
 type ListPageHeaderProps = {
   title: string;
@@ -20,11 +20,11 @@ type ListPageHeaderProps = {
 export function ListPageHeader({
   title,
   description,
-  backHref = "/",
+  backHref = '/',
   searchValue,
-  onSearchChange,
+  onSearchChange
 }: ListPageHeaderProps) {
-  const t = useTranslations("shared.listPage");
+  const t = useTranslations('shared.listPage');
   const searchId = useId();
 
   return (
@@ -35,7 +35,7 @@ export function ListPageHeader({
           className="group mb-6 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:text-fg"
         >
           <ArrowLeft aria-hidden size={12} strokeWidth={2} className="size-3" />
-          {t("back")}
+          {t('back')}
         </Link>
 
         <div className="flex items-start justify-between gap-6">
@@ -52,12 +52,12 @@ export function ListPageHeader({
               className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted"
             />
             <label htmlFor={searchId} className="sr-only">
-              {t("searchLabel")}
+              {t('searchLabel')}
             </label>
             <input
               id={searchId}
               type="text"
-              placeholder={t("searchPlaceholder")}
+              placeholder={t('searchPlaceholder')}
               value={searchValue}
               onChange={(event) => onSearchChange(event.target.value)}
               className="w-full rounded-lg border border-border bg-transparent py-2 pl-9 pr-9 text-sm text-fg placeholder:text-muted"
@@ -66,8 +66,8 @@ export function ListPageHeader({
             {searchValue.length > 0 && (
               <button
                 type="button"
-                onClick={() => onSearchChange("")}
-                aria-label={t("clearLabel")}
+                onClick={() => onSearchChange('')}
+                aria-label={t('clearLabel')}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted transition-colors hover:text-fg"
               >
                 <X aria-hidden size={16} strokeWidth={2} />

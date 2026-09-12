@@ -1,12 +1,12 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState } from 'react';
 
-import { useDebouncedValue } from "./use-debounced-value";
+import { useDebouncedValue } from './use-debounced-value';
 
 export function useSearchFilter<T extends Record<string, unknown>>(
   items: T[],
-  fields: (keyof T)[],
+  fields: (keyof T)[]
 ) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const debouncedSearch = useDebouncedValue(search, 250);
 
   const filtered = useMemo(() => {
@@ -19,8 +19,8 @@ export function useSearchFilter<T extends Record<string, unknown>>(
         if (Array.isArray(value)) {
           return value.some((v) => String(v).toLowerCase().includes(query));
         }
-        return typeof value === "string" && value.toLowerCase().includes(query);
-      }),
+        return typeof value === 'string' && value.toLowerCase().includes(query);
+      })
     );
   }, [items, debouncedSearch, fields]);
 

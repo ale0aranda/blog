@@ -1,6 +1,6 @@
-import path from "node:path";
+import path from 'node:path';
 
-export const POSTS_DIR = path.join(process.cwd(), "domains/writing/content/posts");
+export const POSTS_DIR = path.join(process.cwd(), 'domains/writing/content/posts');
 
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

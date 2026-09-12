@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { ArrowLeft } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { ArrowLeft } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-import { Link } from "@/i18n/navigation";
+import { Link } from '@/i18n/navigation';
 
-import { FadeIn } from "@/shared/motion/components/fade-in";
+import { FadeIn } from '@/shared/motion/components/fade-in';
 
 export function PostBackLink() {
-  const t = useTranslations("domains.writing.actions");
+  const t = useTranslations('domains.writing.actions');
 
   return (
     <FadeIn animate="mount">
@@ -21,7 +21,7 @@ export function PostBackLink() {
           size={13}
           className="transition-transform group-hover:-translate-x-0.5"
         />
-        {t("back")}
+        {t('back')}
       </Link>
     </FadeIn>
   );

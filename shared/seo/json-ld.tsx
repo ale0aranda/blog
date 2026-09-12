@@ -14,7 +14,7 @@ export function JsonLd({ data }: JsonLdProps) {
       type="application/ld+json"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD requires inline script content.
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(data),
+        __html: JSON.stringify(data)
       }}
     />
   );

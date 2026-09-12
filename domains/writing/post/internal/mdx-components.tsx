@@ -1,15 +1,15 @@
-import Image from "next/image";
-import type { ComponentPropsWithoutRef } from "react";
+import Image from 'next/image';
+import type { ComponentPropsWithoutRef } from 'react';
 
-import type { MDXComponents } from "mdx/types";
+import type { MDXComponents } from 'mdx/types';
 
-import { Link } from "@/i18n/navigation";
+import { Link } from '@/i18n/navigation';
 
-import { CodeBlock } from "./code-block";
+import { CodeBlock } from './code-block';
 
 export const mdxComponents: MDXComponents = {
-  a: ({ href = "", children, ...props }: ComponentPropsWithoutRef<"a">) => {
-    if (href.startsWith("/")) {
+  a: ({ href = '', children, ...props }: ComponentPropsWithoutRef<'a'>) => {
+    if (href.startsWith('/')) {
       return (
         <Link href={href} {...props}>
           {children}
@@ -17,7 +17,7 @@ export const mdxComponents: MDXComponents = {
       );
     }
 
-    if (href.startsWith("#")) {
+    if (href.startsWith('#')) {
       return (
         <a href={href} {...props}>
           {children}
@@ -26,10 +26,10 @@ export const mdxComponents: MDXComponents = {
     }
 
     const isExternal =
-      href.startsWith("http://") ||
-      href.startsWith("https://") ||
-      href.startsWith("mailto:") ||
-      href.startsWith("tel:");
+      href.startsWith('http://') ||
+      href.startsWith('https://') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:');
 
     if (isExternal) {
       return (
@@ -47,10 +47,10 @@ export const mdxComponents: MDXComponents = {
   },
 
   img: ({
-    src = "",
-    alt = "",
+    src = '',
+    alt = '',
     ...props
-  }: Omit<ComponentPropsWithoutRef<typeof Image>, "src" | "alt"> & {
+  }: Omit<ComponentPropsWithoutRef<typeof Image>, 'src' | 'alt'> & {
     src?: string;
     alt?: string;
   }) => (
@@ -59,5 +59,5 @@ export const mdxComponents: MDXComponents = {
     </span>
   ),
 
-  pre: CodeBlock,
+  pre: CodeBlock
 };

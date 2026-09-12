@@ -1,15 +1,15 @@
-import { notFound } from "next/navigation";
+import { notFound } from 'next/navigation';
 
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
-import { formatDate } from "@/shared/lib/date";
-import { FadeIn } from "@/shared/motion/components/fade-in";
-import { blogPostingJsonLd, JsonLd } from "@/shared/seo";
+import { formatDate } from '@/shared/lib/date';
+import { FadeIn } from '@/shared/motion/components/fade-in';
+import { blogPostingJsonLd, JsonLd } from '@/shared/seo';
 
-import { rehypePlugins, remarkPlugins } from "../lib/plugins";
-import { getPostBySlug } from "../lib/posts";
-import { mdxComponents } from "./internal/mdx-components";
-import { PostBackLink } from "./internal/post-back-link";
+import { rehypePlugins, remarkPlugins } from '../lib/plugins';
+import { getPostBySlug } from '../lib/posts';
+import { mdxComponents } from './internal/mdx-components';
+import { PostBackLink } from './internal/post-back-link';
 
 type PostViewProps = {
   locale: string;
@@ -63,8 +63,8 @@ export function PostView({ locale, slug }: PostViewProps) {
             options={{
               mdxOptions: {
                 remarkPlugins,
-                rehypePlugins,
-              },
+                rehypePlugins
+              }
             }}
           />
         </FadeIn>

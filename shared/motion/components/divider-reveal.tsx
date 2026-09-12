@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-import { DURATION } from "../tokens/durations";
-import { EASE_OUT } from "../tokens/easings";
+import { DURATION } from '../tokens/durations';
+import { EASE_OUT } from '../tokens/easings';
 
 type DividerRevealProps = {
   className?: string;
@@ -14,24 +14,24 @@ type DividerRevealProps = {
 export function DividerReveal({
   className,
   delay = 0,
-  duration = DURATION.base,
+  duration = DURATION.base
 }: DividerRevealProps) {
   return (
     <motion.div
       initial={{
-        scaleX: 0,
+        scaleX: 0
       }}
       animate={{
-        scaleX: 1,
+        scaleX: 1
       }}
       transition={{
         duration,
         delay,
-        ease: EASE_OUT,
+        ease: EASE_OUT
       }}
       className={className}
       style={{
-        transformOrigin: "left",
+        transformOrigin: 'left'
       }}
       aria-hidden="true"
     />

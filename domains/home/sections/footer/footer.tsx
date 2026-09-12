@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useCurrentTime } from "@/shared/hooks/use-current-time";
-import { FadeIn } from "@/shared/motion/components/fade-in";
+import { useCurrentTime } from '@/shared/hooks/use-current-time';
+import { FadeIn } from '@/shared/motion/components/fade-in';
 
-import { FOOTER_LOCATION, FOOTER_TIMEZONE } from "./footer.constants";
+import { FOOTER_LOCATION, FOOTER_TIMEZONE } from './footer.constants';
 
 export function Footer() {
   const time = useCurrentTime({ timeZone: FOOTER_TIMEZONE });
