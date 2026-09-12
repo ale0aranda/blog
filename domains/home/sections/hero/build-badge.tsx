@@ -1,5 +1,7 @@
 'use client';
 
+import { useId } from 'react';
+
 import { cn } from '@/shared/lib/cn';
 import { Chip } from '@/shared/ui/chip';
 
@@ -25,6 +27,7 @@ const tooltipClassName = cn(
 );
 
 export function BuildBadge({ build }: BuildBadgeProps) {
+  const tooltipId = useId();
   const VersionIcon = BUILD_ICONS.version;
   const CommitIcon = BUILD_ICONS.commit;
   const BranchIcon = BUILD_ICONS.branch;
@@ -33,14 +36,14 @@ export function BuildBadge({ build }: BuildBadgeProps) {
   return (
     <button
       type="button"
-      aria-describedby="build-tooltip"
+      aria-describedby={tooltipId}
       className="group relative inline-flex cursor-default"
     >
       <Chip className={BUILD_CHIP_CLASS.version} icon={<VersionIcon className="size-3" />}>
         v{build.version}
       </Chip>
 
-      <div id="build-tooltip" role="tooltip" className={cn(tooltipPosition, tooltipClassName)}>
+      <div id={tooltipId} role="tooltip" className={cn(tooltipPosition, tooltipClassName)}>
         <Chip
           className={BUILD_CHIP_CLASS.commit}
           icon={<CommitIcon className="size-3" />}
