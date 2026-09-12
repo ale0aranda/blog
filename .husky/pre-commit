@@ -1,1 +1,1 @@
-pnpm exec biome check --staged --write --no-errors-on-unmatched
+pnpm exec lint-staged

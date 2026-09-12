@@ -1,16 +1,8 @@
 {
-  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "extends": ["@ale0aranda/rules/knip"],
   "entry": ["app/**/*.{ts,tsx}"],
   "project": ["app/**/*.{ts,tsx}", "domains/**/*.{ts,tsx}", "shared/**/*.{ts,tsx}", "i18n/**/*.ts"],
   "ignoreDependencies": ["tailwindcss"],
-  "ignoreExportsUsedInFile": true,
-  "rules": {
-    "files": "error",
-    "dependencies": "error",
-    "unlisted": "error",
-    "unresolved": "error",
-    "exports": "warn",
-    "types": "warn",
-    "duplicates": "warn"
-  }
+  "ignoreExportsUsedInFile": true
 }
