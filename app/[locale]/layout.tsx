@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 
+import { Analytics } from '@vercel/analytics/next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 
@@ -36,7 +37,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={cn(sfPro.variable, sfMono.variable)} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={cn(sfPro.variable, sfMono.variable)}
+      suppressHydrationWarning
+    >
       <body>
         <JsonLd data={personJsonLd} />
         <JsonLd data={websiteJsonLd} />
@@ -45,6 +50,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Providers>
             {children}
             <Dock />
+            <Analytics />
           </Providers>
         </NextIntlClientProvider>
       </body>

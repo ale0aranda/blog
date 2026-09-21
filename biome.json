@@ -1,5 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.11/schema.json",
+  "extends": ["@ale0aranda/rules/biome"],
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -9,7 +10,6 @@
   "files": {
     "ignoreUnknown": true,
     "includes": [
-      "**",
       "!node_modules",
       "!.next",
       "!.turbo",
@@ -32,7 +32,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "style": {
         "useImportType": {
           "level": "error",
@@ -80,7 +80,14 @@
               [":URL:"],
               [":NODE:"],
               ":BLANK_LINE:",
-              ["react", "react/**", "next", "next/**", "next-themes", "next-themes/**"],
+              [
+                "react",
+                "react/**",
+                "next",
+                "next/**",
+                "next-themes",
+                "next-themes/**"
+              ],
               ":BLANK_LINE:",
               [":PACKAGE:", "!:ALIAS:"],
               ":BLANK_LINE:",

@@ -1,8 +1,10 @@
 {
+  "extends": "@ale0aranda/rules/typescript/web",
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
+    "checkJs": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
