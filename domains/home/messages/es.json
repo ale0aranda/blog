@@ -3,19 +3,16 @@
     "name": "Alejandro"
   },
   "introduction": {
-    "description": "Explorando ideas y persiguiendo preguntas más grandes de las que probablemente debería. Comparto lo que aprendo a través de proyectos, comunidad y código abierto porque el conocimiento crece cuando se comparte.",
-    "about": "Actualmente estudiando, construyendo Santana, y, como cada noche, intentando conquistar el mundo."
-  },
-  "social": {
-    "navigation": "Social links",
+    "description": "Explorando ideas y persiguiendo preguntas más grandes de lo que probablemente debería. Comparto lo que aprendo a través de proyectos, comunidad y open source porque el conocimiento crece cuando se comparte.",
+    "about": "Actualmente estudiando, construyendo Santana y, como cada noche, intentando conquistar el mundo.",
+    "contact": "Contáctame vía",
+    "email": "email",
+    "or": "o",
+    "book": "agendar una llamada",
+    "explore": "Explora mi trabajo en",
     "github": "GitHub",
-    "𝕏": "𝕏",
-    "email": "Email",
-    "actions": {
-      "open": "abrir",
-      "copy": "copiar",
-      "copied": "copiado"
-    }
+    "and": "y",
+    "resume": "resume"
   },
   "categories": {
     "projects": "Proyectos",

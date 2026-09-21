@@ -4,18 +4,16 @@
   },
   "introduction": {
     "description": "Exploring ideas and chasing questions bigger than I probably should. I share what I learn through projects, community, and open source because knowledge grows when it's shared.",
-    "about": "Currently studying, building Santana, and, like every night trying to conquer the world."
-  },
-  "social": {
-    "navigation": "Social links",
+    "about": "Currently studying, building Santana, and, like every night trying to conquer the world.",
+    "contact": "Reach me via",
+    "email": "email",
+    "or": "or",
+    "book": "a quick call",
+    "explore": "Explore my work on",
     "github": "GitHub",
-    "𝕏": "𝕏",
-    "email": "Email",
-    "actions": {
-      "open": "open",
-      "copy": "copy",
-      "copied": "copied"
-    }
+    "x": "X",
+    "and": "and",
+    "resume": "resume"
   },
   "categories": {
     "projects": "Projects",

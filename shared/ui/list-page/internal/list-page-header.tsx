@@ -12,7 +12,7 @@ import { DividerReveal } from '@/shared/motion/components/divider-reveal';
 type ListPageHeaderProps = {
   title: string;
   description: string;
-  backHref?: string;
+  backHref?: '/' | '/projects' | '/writing';
   searchValue: string;
   onSearchChange: (value: string) => void;
 };
@@ -34,7 +34,12 @@ export function ListPageHeader({
           href={backHref}
           className="group mb-6 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:text-fg"
         >
-          <ArrowLeft aria-hidden size={12} strokeWidth={2} className="size-3" />
+          <ArrowLeft
+            aria-hidden
+            size={12}
+            strokeWidth={2}
+            className="size-3"
+          />
           {t('back')}
         </Link>
 
@@ -51,7 +56,10 @@ export function ListPageHeader({
               strokeWidth={2}
               className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted"
             />
-            <label htmlFor={searchId} className="sr-only">
+            <label
+              htmlFor={searchId}
+              className="sr-only"
+            >
               {t('searchLabel')}
             </label>
             <input
@@ -70,7 +78,11 @@ export function ListPageHeader({
                 aria-label={t('clearLabel')}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted transition-colors hover:text-fg"
               >
-                <X aria-hidden size={16} strokeWidth={2} />
+                <X
+                  aria-hidden
+                  size={16}
+                  strokeWidth={2}
+                />
               </button>
             )}
           </div>
