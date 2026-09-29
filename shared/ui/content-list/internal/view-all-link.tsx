@@ -28,7 +28,7 @@ export function ViewAllLink({ href, label }: Props) {
       onMouseLeave={hide}
       onFocus={show}
       onBlur={hide}
-      className="group -mx-1 inline-flex items-center gap-1 rounded px-1 font-mono text-xs text-muted transition-colors duration-200 hover:text-fg"
+      className="group -mx-1 inline-flex items-center gap-1 rounded px-1 font-mono text-muted text-xs transition-colors duration-200 hover:text-fg"
     >
       <span
         aria-hidden

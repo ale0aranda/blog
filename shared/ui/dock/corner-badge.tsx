@@ -12,10 +12,10 @@ export function CornerBadge({ children, className }: CornerBadgeProps) {
     <span
       aria-hidden
       className={cn(
-        'absolute -right-1 -top-1 flex h-3.5 min-w-3.5',
+        'absolute -top-1 -right-1 flex h-3.5 min-w-3.5',
         'items-center justify-center rounded-full',
-        'bg-bg px-0.5 font-mono text-xs font-medium',
-        'uppercase leading-none text-muted',
+        'bg-bg px-0.5 font-medium font-mono text-xs',
+        'text-muted uppercase leading-none',
         'ring-2 ring-surface',
         className
       )}

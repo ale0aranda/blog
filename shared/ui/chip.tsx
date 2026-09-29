@@ -11,7 +11,7 @@ export function Chip({ icon, children, className, ...props }: ChipProps) {
     <span
       {...props}
       className={cn(
-        'inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium',
+        'inline-flex items-center gap-1 rounded-full border px-2 py-1 font-medium text-xs',
         className
       )}
     >

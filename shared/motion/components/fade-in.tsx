@@ -45,7 +45,12 @@ export function FadeIn({
         };
 
   return (
-    <MotionTag initial="hidden" variants={variants} className={className} {...animationProps}>
+    <MotionTag
+      initial="hidden"
+      variants={variants}
+      className={className}
+      {...animationProps}
+    >
       {children}
     </MotionTag>
   );

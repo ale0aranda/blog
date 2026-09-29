@@ -14,8 +14,8 @@ interface BuildBadgeProps {
 }
 
 const tooltipPosition = cn(
-  'absolute left-1/2 top-full mt-2 -translate-x-1/2',
-  'sm:left-full sm:top-1/2 sm:ml-2 sm:mt-0',
+  'absolute top-full left-1/2 mt-2 -translate-x-1/2',
+  'sm:top-1/2 sm:left-full sm:mt-0 sm:ml-2',
   'sm:translate-x-0 sm:-translate-y-1/2'
 );
 
@@ -39,11 +39,18 @@ export function BuildBadge({ build }: BuildBadgeProps) {
       aria-describedby={tooltipId}
       className="group relative inline-flex cursor-default"
     >
-      <Chip className={BUILD_CHIP_CLASS.version} icon={<VersionIcon className="size-3" />}>
+      <Chip
+        className={BUILD_CHIP_CLASS.version}
+        icon={<VersionIcon className="size-3" />}
+      >
         v{build.version}
       </Chip>
 
-      <div id={tooltipId} role="tooltip" className={cn(tooltipPosition, tooltipClassName)}>
+      <div
+        id={tooltipId}
+        role="tooltip"
+        className={cn(tooltipPosition, tooltipClassName)}
+      >
         <Chip
           className={BUILD_CHIP_CLASS.commit}
           icon={<CommitIcon className="size-3" />}
@@ -61,7 +68,10 @@ export function BuildBadge({ build }: BuildBadgeProps) {
         </Chip>
 
         {build.dirty && (
-          <Chip className={BUILD_CHIP_CLASS.dirty} icon={<DirtyIcon className="size-3" />}>
+          <Chip
+            className={BUILD_CHIP_CLASS.dirty}
+            icon={<DirtyIcon className="size-3" />}
+          >
             Dirty
           </Chip>
         )}

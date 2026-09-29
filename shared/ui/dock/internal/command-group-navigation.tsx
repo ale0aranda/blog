@@ -16,7 +16,10 @@ export function CommandGroupNavigation({ execute }: CommandGroupNavigationProps)
   const t = useTranslations('shared.dock');
 
   return (
-    <Command.Group heading={t('groups.navigation')} className={dockGroupClass}>
+    <Command.Group
+      heading={t('groups.navigation')}
+      className={dockGroupClass}
+    >
       <CommandItemRow
         icon={<Home size={13} />}
         label={t('actions.home')}

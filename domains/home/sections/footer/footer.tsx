@@ -12,17 +12,23 @@ export function Footer() {
     <FadeIn
       as="footer"
       animate="mount"
-      className="mt-8 flex items-center justify-between border-t border-border py-4"
+      className="mt-8 flex items-center justify-between border-border border-t py-4"
     >
-      <p className="whitespace-nowrap text-sm tracking-tight text-muted">
+      <p className="whitespace-nowrap text-muted text-sm tracking-tight">
         {FOOTER_LOCATION}
-        <span aria-hidden="true" className="mx-1.5 opacity-40">
+        <span
+          aria-hidden="true"
+          className="mx-1.5 opacity-40"
+        >
           —
         </span>
         {time ? (
           <time dateTime={time.iso}>{time.formatted}</time>
         ) : (
-          <span className="inline-block w-13" aria-hidden="true" />
+          <span
+            className="inline-block w-13"
+            aria-hidden="true"
+          />
         )}
       </p>
     </FadeIn>

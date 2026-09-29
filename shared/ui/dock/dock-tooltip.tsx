@@ -19,12 +19,11 @@ export function DockTooltip({ label, placement = 'top', children }: DockTooltipP
         role="tooltip"
         className={cn(
           'pointer-events-none absolute whitespace-nowrap rounded-md',
-          'bg-fg px-2 py-1 font-mono text-xs tracking-wide text-bg',
-          'opacity-0 transition-[opacity,transform]',
-          'duration-150 ease-out',
+          'bg-fg px-2 py-1 font-mono text-bg text-xs tracking-wide',
+          'opacity-0 transition duration-150 ease-out',
           'group-hover:opacity-100',
           placement === 'left'
-            ? ['right-full top-1/2 mr-2.5', '-translate-y-1/2', 'group-hover:-translate-x-0.5']
+            ? ['top-1/2 right-full mr-2.5', '-translate-y-1/2', 'group-hover:-translate-x-0.5']
             : ['bottom-full left-1/2 mb-2.5', '-translate-x-1/2', 'group-hover:-translate-y-0.5']
         )}
       >

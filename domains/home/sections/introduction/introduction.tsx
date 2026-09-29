@@ -14,7 +14,7 @@ export function Introduction() {
   return (
     <StaggerGroup
       as="section"
-      className="mb-3 mt-8 space-y-4 leading-relaxed text-fg"
+      className="mt-8 mb-3 space-y-4 text-fg leading-relaxed"
     >
       <FadeIn as="p">{t('description')}</FadeIn>
 

@@ -33,8 +33,14 @@ export function ContentList({
   const activeCategoryData = categories.find((category) => category.id === activeCategory);
 
   return (
-    <section className="mt-10" aria-label={t('categories.label')}>
-      <FadeIn as="header" animate="mount">
+    <section
+      className="mt-10"
+      aria-label={t('categories.label')}
+    >
+      <FadeIn
+        as="header"
+        animate="mount"
+      >
         <header className="mb-4 flex items-center justify-between">
           <CategoryTabs
             categories={categories}
@@ -45,7 +51,10 @@ export function ContentList({
           <div className="flex items-center gap-4">
             <ViewAllLink href={activeCategoryData?.href ?? '#'} />
 
-            <ViewModeToggle value={viewMode} onChange={setViewMode} />
+            <ViewModeToggle
+              value={viewMode}
+              onChange={setViewMode}
+            />
           </div>
         </header>
       </FadeIn>
@@ -60,7 +69,11 @@ export function ContentList({
       >
         {items.length > 0 ? (
           items.map((item) => (
-            <FadeIn as="li" animate="mount" key={item.id}>
+            <FadeIn
+              as="li"
+              animate="mount"
+              key={item.id}
+            >
               {viewMode === 'default' ? (
                 <ContentItem item={item} />
               ) : (
@@ -69,7 +82,11 @@ export function ContentList({
             </FadeIn>
           ))
         ) : (
-          <FadeIn as="li" animate="mount" className="py-6 text-sm text-muted">
+          <FadeIn
+            as="li"
+            animate="mount"
+            className="py-6 text-muted text-sm"
+          >
             {t('empty.label')}
           </FadeIn>
         )}

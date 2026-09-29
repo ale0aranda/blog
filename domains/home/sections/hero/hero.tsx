@@ -7,7 +7,10 @@ import { HeroTitle } from './hero-title';
 
 export function Hero() {
   return (
-    <StaggerGroup as="header" className="flex items-center gap-5">
+    <StaggerGroup
+      as="header"
+      className="flex items-center gap-5"
+    >
       <FadeIn>
         <HeroTitle />
       </FadeIn>

@@ -27,10 +27,12 @@ export function Activity({ itemsByCategory }: Props) {
   );
 
   return (
-    <ContentList
-      categories={categories}
-      itemsByCategory={itemsByCategory}
-      defaultCategory="projects"
-    />
+    <div className="-mt-2">
+      <ContentList
+        categories={categories}
+        itemsByCategory={itemsByCategory}
+        defaultCategory="projects"
+      />
+    </div>
   );
 }

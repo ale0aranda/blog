@@ -21,12 +21,9 @@ interface DockThemeMenuProps {
 
 export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
   const { theme, setTheme } = useTheme();
-
   const t = useTranslations('shared.dock');
-
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
-
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,7 +31,9 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      return;
+    }
 
     function handlePointerDown(event: PointerEvent) {
       const target = event.target as Node;
@@ -60,7 +59,12 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
   }, [open]);
 
   if (!mounted || !theme) {
-    return <span aria-hidden className="size-9 shrink-0 rounded-full" />;
+    return (
+      <span
+        aria-hidden
+        className="size-9 shrink-0 rounded-full"
+      />
+    );
   }
 
   const currentTheme = (theme as DockTheme) in THEME_META ? (theme as DockTheme) : THEMES[0];
@@ -70,7 +74,7 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
 
   const menuPosition =
     placement === 'left'
-      ? 'right-full top-1/2 mr-3 -translate-y-1/2 origin-right'
+      ? 'top-1/2 right-full mr-3 -translate-y-1/2 origin-right'
       : 'bottom-full left-1/2 mb-3 -translate-x-1/2 origin-bottom';
 
   const openTransform = placement === 'left' ? 'translate-x-0' : 'translate-y-0';
@@ -78,17 +82,26 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
   const closedTransform = placement === 'left' ? 'translate-x-1' : 'translate-y-1';
 
   return (
-    <div ref={containerRef} className="relative">
-      <DockTooltip label={currentMeta.label} placement={placement}>
+    <div
+      ref={containerRef}
+      className="relative"
+    >
+      <DockTooltip
+        label={currentMeta.label}
+        placement={placement}
+      >
         <button
           type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-haspopup="menu"
           aria-expanded={open}
+          aria-haspopup="menu"
           aria-label={t('aria.chooseTheme')}
           className={cn(dockButtonClass, open && 'scale-105 bg-bg/80')}
+          onClick={() => setOpen((value) => !value)}
         >
-          <CurrentIcon size={17} strokeWidth={1.6} />
+          <CurrentIcon
+            size={17}
+            strokeWidth={1.6}
+          />
         </button>
       </DockTooltip>
 
@@ -98,8 +111,7 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
         className={cn(
           'absolute w-36 p-1.5',
           dockMenuClass,
-          'transition-[opacity,transform]',
-          'duration-150 ease-out',
+          'transition duration-150 ease-out',
           menuPosition,
           open
             ? cn(openTransform, 'scale-100 opacity-100')
@@ -126,23 +138,29 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
               type="button"
               role="menuitemradio"
               aria-checked={active}
-              onClick={() => {
-                setTheme(item);
-                setOpen(false);
-              }}
               className={cn(
                 'group flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2',
                 'font-mono text-xs uppercase tracking-wide',
                 'transition-colors duration-150',
                 active ? 'bg-accent/10 text-accent' : 'text-muted hover:bg-bg hover:text-fg'
               )}
+              onClick={() => {
+                setTheme(item);
+                setOpen(false);
+              }}
             >
-              <Icon size={14} strokeWidth={1.6} />
+              <Icon
+                size={14}
+                strokeWidth={1.6}
+              />
 
               <span className="flex-1">{meta.label}</span>
 
               {active ? (
-                <Check size={13} strokeWidth={2} />
+                <Check
+                  size={13}
+                  strokeWidth={2}
+                />
               ) : (
                 <span
                   aria-hidden

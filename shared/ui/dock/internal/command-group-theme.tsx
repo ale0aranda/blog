@@ -20,7 +20,10 @@ export function CommandGroupTheme({ execute }: CommandGroupThemeProps) {
   const t = useTranslations('shared.dock');
 
   return (
-    <Command.Group heading={t('groups.theme')} className={dockGroupClass}>
+    <Command.Group
+      heading={t('groups.theme')}
+      className={dockGroupClass}
+    >
       {THEMES.map((item) => {
         const themeName = item as DockTheme;
         const meta = THEME_META[themeName];
@@ -29,7 +32,12 @@ export function CommandGroupTheme({ execute }: CommandGroupThemeProps) {
         return (
           <CommandItemRow
             key={themeName}
-            icon={<meta.Icon size={13} strokeWidth={1.8} />}
+            icon={
+              <meta.Icon
+                size={13}
+                strokeWidth={1.8}
+              />
+            }
             label={meta.label}
             active={active}
             currentLabel={t('command.current')}

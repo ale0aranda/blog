@@ -38,7 +38,11 @@ export function ViewModeToggle({ value, onChange }: Props) {
             className="sr-only"
           />
 
-          <Icon aria-hidden size={16} strokeWidth={2} />
+          <Icon
+            aria-hidden
+            size={16}
+            strokeWidth={2}
+          />
 
           <span className="sr-only">{t(messageKey)}</span>
         </label>

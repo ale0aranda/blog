@@ -36,14 +36,20 @@ export function DockCommandButton({ onOpen, placement = 'top' }: DockCommandButt
   }, [onOpen]);
 
   return (
-    <DockTooltip label={t('tooltip.search')} placement={placement}>
+    <DockTooltip
+      label={t('tooltip.search')}
+      placement={placement}
+    >
       <button
         type="button"
         onClick={onOpen}
         aria-label={t('aria.openCommand')}
         className={dockButtonClass}
       >
-        <Command size={17} strokeWidth={1.6} />
+        <Command
+          size={17}
+          strokeWidth={1.6}
+        />
         <CornerBadge>K</CornerBadge>
       </button>
     </DockTooltip>

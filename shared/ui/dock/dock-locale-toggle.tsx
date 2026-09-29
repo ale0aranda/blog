@@ -20,14 +20,20 @@ export function DockLocaleToggle({ placement = 'top' }: DockLocaleToggleProps) {
   const t = useTranslations('shared.dock');
 
   return (
-    <DockTooltip label={t('language.switch', { locale: nextLocale })} placement={placement}>
+    <DockTooltip
+      label={t('language.switch', { locale: nextLocale })}
+      placement={placement}
+    >
       <button
         type="button"
         onClick={() => switchLocale(nextLocale)}
         aria-label={t('language.switch', { locale: nextLocale })}
         className={dockButtonClass}
       >
-        <Languages size={17} strokeWidth={1.6} />
+        <Languages
+          size={17}
+          strokeWidth={1.6}
+        />
         <CornerBadge>{nextLocale}</CornerBadge>
       </button>
     </DockTooltip>

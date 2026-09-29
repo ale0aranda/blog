@@ -38,9 +38,17 @@ export function ListPage({ title, description, emptyLabel, items }: ListPageProp
       </FadeIn>
 
       {filtered.length > 0 ? (
-        <StaggerGroup as="ul" animate="mount" key="results">
+        <StaggerGroup
+          as="ul"
+          animate="mount"
+          key="results"
+        >
           {filtered.map((item) => (
-            <FadeIn as="li" animate="mount" key={item.id}>
+            <FadeIn
+              as="li"
+              animate="mount"
+              key={item.id}
+            >
               <ContentItemComponent item={item} />
             </FadeIn>
           ))}
@@ -51,11 +59,16 @@ export function ListPage({ title, description, emptyLabel, items }: ListPageProp
           key="empty"
           className="flex flex-col items-center gap-3 py-20 text-center"
         >
-          <SearchX aria-hidden size={32} strokeWidth={1.5} className="text-muted" />
+          <SearchX
+            aria-hidden
+            size={32}
+            strokeWidth={1.5}
+            className="text-muted"
+          />
           <div>
-            <p className="text-sm text-fg">{emptyLabel}</p>
+            <p className="text-fg text-sm">{emptyLabel}</p>
             {debouncedSearch.trim().length > 0 && (
-              <p className="mt-0.5 text-sm text-muted">
+              <p className="mt-0.5 text-muted text-sm">
                 {t('noMatchFor', { query: debouncedSearch.trim() })}
               </p>
             )}

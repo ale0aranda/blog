@@ -32,7 +32,7 @@ export function ListPageHeader({
       <header className="mb-10">
         <Link
           href={backHref}
-          className="group mb-6 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:text-fg"
+          className="group mb-6 inline-flex items-center gap-1.5 font-mono font-semibold text-muted text-xs uppercase tracking-widest transition-colors hover:text-fg"
         >
           <ArrowLeft
             aria-hidden
@@ -45,7 +45,7 @@ export function ListPageHeader({
 
         <div className="flex items-start justify-between gap-6">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight text-fg">{title}</h1>
+            <h1 className="font-bold text-4xl text-fg tracking-tight">{title}</h1>
             <p className="mt-2 text-base text-muted">{description}</p>
           </div>
 
@@ -54,7 +54,7 @@ export function ListPageHeader({
               aria-hidden
               size={16}
               strokeWidth={2}
-              className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted"
+              className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted"
             />
             <label
               htmlFor={searchId}
@@ -68,7 +68,7 @@ export function ListPageHeader({
               placeholder={t('searchPlaceholder')}
               value={searchValue}
               onChange={(event) => onSearchChange(event.target.value)}
-              className="w-full rounded-lg border border-border bg-transparent py-2 pl-9 pr-9 text-sm text-fg placeholder:text-muted"
+              className="w-full rounded-lg border border-border bg-transparent py-2 pr-9 pl-9 text-fg text-sm placeholder:text-muted"
             />
 
             {searchValue.length > 0 && (
@@ -76,7 +76,7 @@ export function ListPageHeader({
                 type="button"
                 onClick={() => onSearchChange('')}
                 aria-label={t('clearLabel')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted transition-colors hover:text-fg"
+                className="absolute top-1/2 right-3 -translate-y-1/2 text-muted transition-colors hover:text-fg"
               >
                 <X
                   aria-hidden

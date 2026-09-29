@@ -33,14 +33,18 @@ export function PostView({ locale, slug }: PostViewProps) {
       <div className="mx-auto flex w-full max-w-2xl flex-col px-6 py-20">
         <PostBackLink />
 
-        <FadeIn as="header" animate="mount" className="mb-10">
-          <h1 className="text-3xl font-bold tracking-tight text-fg">{post.frontmatter.title}</h1>
+        <FadeIn
+          as="header"
+          animate="mount"
+          className="mb-10"
+        >
+          <h1 className="font-bold text-3xl text-fg tracking-tight">{post.frontmatter.title}</h1>
 
           {post.frontmatter.description && (
             <p className="mt-3 text-lg text-muted">{post.frontmatter.description}</p>
           )}
 
-          <div className="mt-5 flex items-center gap-2 font-mono text-xs text-muted">
+          <div className="mt-5 flex items-center gap-2 font-mono text-muted text-xs">
             <time dateTime={post.frontmatter.date}>{date}</time>
 
             {post.readingTime && (
@@ -55,7 +59,7 @@ export function PostView({ locale, slug }: PostViewProps) {
         <FadeIn
           as="div"
           animate="mount"
-          className="prose prose-post max-w-none prose-pre:bg-surface prose-pre:border prose-pre:border-border"
+          className="prose prose-post max-w-none prose-pre:border prose-pre:border-border prose-pre:bg-surface"
         >
           <MDXRemote
             source={post.content}

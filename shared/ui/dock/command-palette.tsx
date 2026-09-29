@@ -21,7 +21,6 @@ interface CommandPaletteProps {
 
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
   const t = useTranslations('shared.dock');
-
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -60,15 +59,15 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center px-4 pt-[16vh]">
+    <div className="fixed inset-0 z-50 flex justify-center px-4 pt-32">
       <div
         aria-hidden
-        onClick={() => onOpenChange(false)}
         className={cn(
           'fixed inset-0 bg-fg/30 backdrop-blur-sm',
           'transition-opacity duration-200',
           visible ? 'opacity-100' : 'opacity-0'
         )}
+        onClick={() => onOpenChange(false)}
       />
 
       <Command
@@ -78,20 +77,23 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
           'overflow-hidden rounded-2xl',
           'border border-border bg-surface',
           'shadow-xl',
-          'transition-[opacity,transform]',
-          'duration-200 ease-out',
+          'transition duration-200 ease-out',
           visible ? 'translate-y-0 scale-100 opacity-100' : '-translate-y-2 scale-95 opacity-0'
         )}
       >
-        <div className="flex items-center gap-2.5 border-b border-border px-4">
-          <Search size={15} strokeWidth={1.8} className="text-muted" />
+        <div className="flex items-center gap-2.5 border-border border-b px-4">
+          <Search
+            size={15}
+            strokeWidth={1.8}
+            className="text-muted"
+          />
 
           <Command.Input
             autoFocus
             placeholder={t('command.placeholder')}
             className={cn(
               'h-12 w-full bg-transparent',
-              'text-sm text-fg outline-none',
+              'text-fg text-sm outline-none',
               'placeholder:text-muted'
             )}
           />
@@ -100,7 +102,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
         </div>
 
         <Command.List className="max-h-80 overflow-y-auto p-1.5">
-          <Command.Empty className="py-10 text-center font-mono text-xs text-muted">
+          <Command.Empty className="py-10 text-center font-mono text-muted text-xs">
             {t('command.empty')}
           </Command.Empty>
 
@@ -115,7 +117,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
           <CommandGroupLanguage execute={execute} />
         </Command.List>
 
-        <div className="flex items-center gap-4 border-t border-border px-4 py-2.5 font-mono text-xs text-muted">
+        <div className="flex items-center gap-4 border-border border-t px-4 py-2.5 font-mono text-muted text-xs">
           <span className="flex items-center gap-1.5">
             <kbd className={dockKbdClass}>↑↓</kbd>
             {t('footer.navigate')}
@@ -123,8 +125,12 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
 
           <span className="flex items-center gap-1.5">
             <kbd className="flex items-center rounded bg-bg px-1 py-0.5">
-              <CornerDownLeft size={10} strokeWidth={2} />
+              <CornerDownLeft
+                size={10}
+                strokeWidth={2}
+              />
             </kbd>
+
             {t('footer.select')}
           </span>
         </div>

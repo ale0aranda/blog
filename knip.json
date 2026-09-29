@@ -1,8 +1,12 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
-  "extends": ["@ale0aranda/rules/knip"],
   "entry": ["app/**/*.{ts,tsx}"],
-  "project": ["app/**/*.{ts,tsx}", "domains/**/*.{ts,tsx}", "shared/**/*.{ts,tsx}", "i18n/**/*.ts"],
+  "project": [
+    "app/**/*.{ts,tsx}",
+    "domains/**/*.{ts,tsx}",
+    "shared/**/*.{ts,tsx}",
+    "i18n/**/*.ts"
+  ],
   "ignoreDependencies": ["tailwindcss"],
   "ignoreExportsUsedInFile": true
 }

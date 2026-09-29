@@ -69,5 +69,10 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 export default async function PostPage({ params }: PostPageProps) {
   const { locale, slug } = await params;
 
-  return <PostView locale={locale} slug={slug} />;
+  return (
+    <PostView
+      locale={locale}
+      slug={slug}
+    />
+  );
 }

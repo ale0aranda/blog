@@ -32,16 +32,26 @@ export function CodeBlock({ 'data-language': language, ...props }: CodeBlockProp
 
   return (
     <div className="overflow-hidden rounded-xl border border-border bg-surface">
-      <div className="flex items-center justify-between border-b border-border px-4 py-2">
-        <span className="font-mono text-xs font-medium text-muted">{language ?? 'text'}</span>
+      <div className="flex items-center justify-between border-border border-b px-4 py-2">
+        <span className="font-medium font-mono text-muted text-xs">{language ?? 'text'}</span>
 
         <button
           type="button"
           onClick={handleCopy}
           aria-label={copied ? t('copied') : t('copy')}
-          className="flex items-center gap-1.5 rounded-md px-1.5 py-1 font-mono text-xs text-muted transition-colors hover:bg-border/40 hover:text-fg"
+          className="flex items-center gap-1.5 rounded-md px-1.5 py-1 font-mono text-muted text-xs transition-colors hover:bg-border/40 hover:text-fg"
         >
-          {copied ? <Check aria-hidden size={13} /> : <Copy aria-hidden size={13} />}
+          {copied ? (
+            <Check
+              aria-hidden
+              size={13}
+            />
+          ) : (
+            <Copy
+              aria-hidden
+              size={13}
+            />
+          )}
           {copied ? t('copied') : t('copy')}
         </button>
       </div>

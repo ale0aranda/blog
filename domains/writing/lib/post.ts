@@ -29,9 +29,9 @@ export function assertValidFrontmatter(
   }
 
   if (
-    typeof data.date !== 'string' ||
-    !DATE_PATTERN.test(data.date) ||
-    Number.isNaN(Date.parse(data.date))
+    typeof data.date !== 'string'
+    || !DATE_PATTERN.test(data.date)
+    || Number.isNaN(Date.parse(data.date))
   ) {
     throw new Error(`Post "${locale}/${slug}" is missing a valid "date" in frontmatter`);
   }
@@ -41,8 +41,8 @@ export function assertValidFrontmatter(
   }
 
   if (
-    data.tags !== undefined &&
-    (!Array.isArray(data.tags) || !data.tags.every((tag) => typeof tag === 'string'))
+    data.tags !== undefined
+    && (!Array.isArray(data.tags) || !data.tags.every((tag) => typeof tag === 'string'))
   ) {
     throw new Error(`Post "${locale}/${slug}" has an invalid "tags" in frontmatter`);
   }

@@ -14,10 +14,13 @@ export function ContentCompactItem({ item }: ContentCompactItemProps) {
   const locale = useLocale();
 
   return (
-    <a href={item.href} className={contentListStyles.compactItem}>
+    <a
+      href={item.href}
+      className={contentListStyles.compactItem}
+    >
       <time
         dateTime={item.date}
-        className="w-14 shrink-0 font-mono text-xs tabular-nums text-muted"
+        className="w-14 shrink-0 font-mono text-muted text-xs tabular-nums"
       >
         {formatItemDate(item.date, locale)}
       </time>
@@ -27,7 +30,10 @@ export function ContentCompactItem({ item }: ContentCompactItemProps) {
       {item.tags && item.tags.length > 0 && (
         <div className="flex shrink-0 gap-2">
           {item.tags.map((tag) => (
-            <span key={tag} className={contentListStyles.tag}>
+            <span
+              key={tag}
+              className={contentListStyles.tag}
+            >
               {tag}
             </span>
           ))}

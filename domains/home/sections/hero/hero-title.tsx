@@ -7,9 +7,12 @@ export function HeroTitle() {
 
   return (
     <>
-      <h1 className="text-4xl font-bold tracking-tight text-fg">{t('name')}</h1>
+      <h1 className="font-bold text-4xl text-fg tracking-tight">{t('name')}</h1>
 
-      <span aria-hidden="true" className="h-7 w-px bg-border" />
+      <span
+        aria-hidden="true"
+        className="h-7 w-px bg-border"
+      />
     </>
   );
 }

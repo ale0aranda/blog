@@ -14,7 +14,7 @@ export function PostBackLink() {
     <FadeIn animate="mount">
       <Link
         href="/writing"
-        className="group mb-8 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:text-fg"
+        className="group mb-8 inline-flex items-center gap-1.5 font-mono font-semibold text-muted text-xs uppercase tracking-widest transition-colors hover:text-fg"
       >
         <ArrowLeft
           aria-hidden

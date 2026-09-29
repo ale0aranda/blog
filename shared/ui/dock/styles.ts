@@ -13,7 +13,7 @@ export const dockButtonClass = cn(
 );
 
 export const dockItemClass = cn(
-  'group flex items-center gap-3 rounded-xl px-3 py-2 text-left text-sm text-fg',
+  'group flex items-center gap-3 rounded-xl px-3 py-2 text-left text-fg text-sm',
   'transition-colors duration-150',
   'aria-selected:bg-accent/10',
   'aria-selected:text-accent',
@@ -43,4 +43,4 @@ export const dockSeparatorClass = 'my-1 h-px bg-border';
 
 export const dockMenuClass = cn('rounded-2xl border border-border bg-surface', 'shadow-xl');
 
-export const dockKbdClass = cn('rounded bg-bg px-1.5 py-0.5', 'font-mono text-xs text-muted');
+export const dockKbdClass = cn('rounded bg-bg px-1.5 py-0.5', 'font-mono text-muted text-xs');

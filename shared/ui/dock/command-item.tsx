@@ -20,13 +20,17 @@ export function CommandItemRow({
   onSelect
 }: CommandItemRowProps) {
   return (
-    <Command.Item disabled={active} onSelect={onSelect} className={dockItemClass}>
+    <Command.Item
+      disabled={active}
+      onSelect={onSelect}
+      className={dockItemClass}
+    >
       <span className={dockItemIconClass}>{icon}</span>
 
       <span className="flex-1">{label}</span>
 
       {active && currentLabel ? (
-        <span className="font-mono text-xs text-muted">{currentLabel}</span>
+        <span className="font-mono text-muted text-xs">{currentLabel}</span>
       ) : null}
     </Command.Item>
   );

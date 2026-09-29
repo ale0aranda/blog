@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @theme inline {
   --color-bg: var(--color-bg);
@@ -17,7 +17,7 @@
 }
 
 :root,
-[data-theme="light"] {
+[data-theme='light'] {
   --color-bg: #fafafa;
   --color-fg: #171717;
   --color-accent: #2563eb;
@@ -31,7 +31,7 @@
   color-scheme: light;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: #0c0c0c;
   --color-fg: #ededed;
   --color-accent: #60a5fa;
@@ -45,7 +45,7 @@
   color-scheme: dark;
 }
 
-[data-theme="dracula"] {
+[data-theme='dracula'] {
   --color-bg: #282a36;
   --color-fg: #f8f8f2;
 
@@ -64,7 +64,7 @@
   color-scheme: dark;
 }
 
-[data-theme="sepia"] {
+[data-theme='sepia'] {
   --color-bg: #f4ecd8;
   --color-fg: #2b241a;
   --color-accent: #b45309;
@@ -107,14 +107,18 @@ code[data-theme] span {
   color: var(--shiki-light);
 }
 
-[data-theme="dark"] code[data-theme] span {
+[data-theme='dark'] code[data-theme] span {
   color: var(--shiki-dark);
 }
 
-[data-theme="dracula"] code[data-theme] span {
+[data-theme='dracula'] code[data-theme] span {
   color: var(--shiki-dracula);
 }
 
-[data-theme="sepia"] code[data-theme] span {
+[data-theme='sepia'] code[data-theme] span {
   color: var(--shiki-sepia);
+}
+
+@utility pb-safe {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.375rem);
 }

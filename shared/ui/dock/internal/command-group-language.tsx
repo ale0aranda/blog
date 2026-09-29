@@ -18,7 +18,10 @@ export function CommandGroupLanguage({ execute }: CommandGroupLanguageProps) {
   const t = useTranslations('shared.dock');
 
   return (
-    <Command.Group heading={t('groups.language')} className={dockGroupClass}>
+    <Command.Group
+      heading={t('groups.language')}
+      className={dockGroupClass}
+    >
       {availableLocales.map((item) => {
         const active = isCurrentValue(currentLocale, item);
 
