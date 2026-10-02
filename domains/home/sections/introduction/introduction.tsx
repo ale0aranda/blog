@@ -1,15 +1,44 @@
 import { Calendar, FileText, Mail } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 import { FadeIn } from '@/shared/motion/components/fade-in';
 import { StaggerGroup } from '@/shared/motion/components/stagger-group';
 
+import { getGitHubProfile } from './github-profile';
 import { introductionStyles } from './introduction.styles';
 import { GitHubIcon, XIcon } from './introduction-icons';
 import { IntroductionLink } from './introduction-link';
+import type { SocialProfile } from './social-profile-card';
 
-export function Introduction() {
-  const t = useTranslations('home.introduction');
+export async function Introduction() {
+  const [t, github] = await Promise.all([getTranslations('home.introduction'), getGitHubProfile()]);
+
+  const sharedIdentity = {
+    name: github?.name || 'Alejandro Aranda',
+    ...(github ? { avatar: github.avatar_url } : {})
+  };
+
+  const githubProfile: SocialProfile = {
+    ...sharedIdentity,
+    platform: 'github',
+    username: github?.login ?? 'ale0aranda',
+    bio: github?.bio ?? '',
+    ...(github?.location ? { location: github.location } : {}),
+    ...(github
+      ? {
+          followers: github.followers,
+          repositories: github.public_repos
+        }
+      : {})
+  };
+  const xProfile: SocialProfile = {
+    ...sharedIdentity,
+    platform: 'x',
+    username: 'ale0aranda',
+    bio: 'Sharing what I learn, build, and find interesting.',
+    location: 'Santiago, Chile',
+    banner: '/profile/banner.png'
+  };
 
   return (
     <StaggerGroup
@@ -66,6 +95,7 @@ export function Introduction() {
           external
           href="https://github.com/ale0aranda"
           icon={<GitHubIcon />}
+          profile={githubProfile}
         >
           {t('github')}
         </IntroductionLink>
@@ -76,6 +106,7 @@ export function Introduction() {
           external
           href="https://x.com/ale0aranda"
           icon={<XIcon />}
+          profile={xProfile}
         >
           {t('x')}
         </IntroductionLink>
