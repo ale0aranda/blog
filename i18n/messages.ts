@@ -1,5 +1,7 @@
 import homeEn from '@/domains/home/messages/en.json';
 import homeEs from '@/domains/home/messages/es.json';
+import notFoundEn from '@/domains/not-found/messages/en.json';
+import notFoundEs from '@/domains/not-found/messages/es.json';
 import projectsEn from '@/domains/projects/messages/en.json';
 import projectsEs from '@/domains/projects/messages/es.json';
 import writingEn from '@/domains/writing/messages/en.json';
@@ -17,7 +19,8 @@ export const messages = {
     home: homeEn,
     domains: {
       projects: projectsEn,
-      writing: writingEn
+      writing: writingEn,
+      notFound: notFoundEn
     },
     shared: {
       contentList: contentListEn,
@@ -29,7 +32,8 @@ export const messages = {
     home: homeEs,
     domains: {
       projects: projectsEs,
-      writing: writingEs
+      writing: writingEs,
+      notFound: notFoundEs
     },
     shared: {
       contentList: contentListEs,
