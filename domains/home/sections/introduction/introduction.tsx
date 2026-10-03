@@ -31,19 +31,37 @@ export async function Introduction() {
         }
       : {})
   };
+
   const xProfile: SocialProfile = {
     ...sharedIdentity,
     platform: 'x',
     username: 'ale0aranda',
-    bio: 'Sharing what I learn, build, and find interesting.',
+    bio: t('profiles.x.bio'),
     location: 'Santiago, Chile',
     banner: '/profile/banner.png'
+  };
+
+  const calProfile: SocialProfile = {
+    ...sharedIdentity,
+    platform: 'cal',
+    username: '',
+    bio: t('profiles.cal.bio'),
+    duration: t('profiles.cal.duration'),
+    actionLabel: t('profiles.cal.action')
+  };
+
+  const emailProfile: SocialProfile = {
+    ...sharedIdentity,
+    platform: 'email',
+    username: 'alejandro.arancibia.aranda@gmail.com',
+    bio: t('profiles.email.bio'),
+    actionLabel: t('profiles.email.action')
   };
 
   return (
     <StaggerGroup
       as="section"
-      className="mt-8 mb-3 space-y-4 text-fg leading-relaxed"
+      className="mt-8 space-y-4 text-fg leading-relaxed"
     >
       <FadeIn as="p">{t('description')}</FadeIn>
 
@@ -63,6 +81,7 @@ export async function Introduction() {
               className={introductionStyles.icon}
             />
           }
+          profile={emailProfile}
         >
           {t('email')}
         </IntroductionLink>
@@ -78,6 +97,7 @@ export async function Introduction() {
               className={introductionStyles.icon}
             />
           }
+          profile={calProfile}
         >
           {t('book')}
         </IntroductionLink>

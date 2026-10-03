@@ -4,7 +4,7 @@ export const projects: ContentItem[] = [
   {
     id: 'escape-room',
     title: 'Python Escape Room',
-    description: 'Learn Python through themed rooms and progressively challenging puzzles.',
+    description: 'Learn Python, one puzzle at a time.',
     href: 'https://github.com/python-chile/escape-room',
     date: '2026-08-26',
     tags: ['Education'],
@@ -13,7 +13,7 @@ export const projects: ContentItem[] = [
   {
     id: 'diagrama-de-venn',
     title: 'Venn Designer',
-    description: 'A visual editor for exploring sets, intersections, and their relationships.',
+    description: 'Explore sets and their intersections.',
     href: 'https://github.com/open-ucsh/diagrama-de-venn',
     date: '2026-08-23',
     tags: ['Web'],
@@ -22,8 +22,7 @@ export const projects: ContentItem[] = [
   {
     id: 'entidad-relacion',
     title: 'MER Designer',
-    description:
-      'Design entity–relationship diagrams with entities, attributes, and relationships.',
+    description: 'Give your database ideas a shape.',
     href: 'https://github.com/open-ucsh/entidad-relacion',
     date: '2026-08-07',
     tags: ['Web'],
@@ -32,7 +31,7 @@ export const projects: ContentItem[] = [
   {
     id: 'santana-labs',
     title: 'Santana Labs',
-    description: 'A home for public research, experiments, projects, and shared field notes.',
+    description: 'A place for experiments and shared ideas.',
     href: 'https://github.com/santanahq/santanahq.github.io',
     date: '2026-08-06',
     tags: ['Research'],

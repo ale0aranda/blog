@@ -13,10 +13,44 @@
     "github": "GitHub",
     "x": "X",
     "and": "y",
-    "resume": "currículum"
+    "resume": "currículum",
+    "profiles": {
+      "x": {
+        "bio": "Comparto lo que aprendo, construyo y encuentro interesante."
+      },
+      "cal": {
+        "bio": "Un espacio para conversar e intercambiar ideas.",
+        "duration": "30 min · 1 h",
+        "action": "Agendemos una llamada"
+      },
+      "email": {
+        "bio": "Para ideas, propuestas o simplemente saludar.",
+        "action": "Hablemos por correo"
+      }
+    }
   },
   "categories": {
     "projects": "Proyectos",
     "writing": "Escritura"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "all": "Todos los proyectos",
+    "descriptions": {
+      "escape-room": "Aprendé programación resolviendo desafíos.",
+      "entidad-relacion": "Diseñá modelos de datos de forma visual.",
+      "diagrama-de-venn": "Explorá conjuntos y sus relaciones.",
+      "santana-labs": "Un espacio para construir herramientas abiertas."
+    },
+    "source": "Ver código de {project} en GitHub"
+  },
+  "gallery": {
+    "title": "Galería",
+    "images": {
+      "teo": "Teo esperando algo para comer.",
+      "sun": "Selfie juntos, con el sol iluminándonos la cara.",
+      "painting": "Pintando un cuadro juntos.",
+      "mirror": "Mi polola y yo frente al espejo."
+    }
   }
 }
