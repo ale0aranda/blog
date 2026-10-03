@@ -3,6 +3,7 @@
 import type { KeyboardEvent, PointerEvent } from 'react';
 import { useRef, useState } from 'react';
 
+import { MathFormula } from './math-formula';
 import { getSvgPoint } from './svg-point';
 import { useCurveAnimation } from './use-curve-animation';
 
@@ -244,9 +245,7 @@ export function Bezier() {
         ))}
       </svg>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-4 m-0 text-center font-serif text-muted text-sm italic">
-        B(t) = ∑ bᵢ,₃(t) Pᵢ
-      </p>
+      <MathFormula formula={String.raw`B(t)=\displaystyle\sum_{i=0}^{3} b_{i,3}(t)\,P_i`} />
     </div>
   );
 }

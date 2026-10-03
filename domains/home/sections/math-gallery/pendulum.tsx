@@ -3,6 +3,7 @@
 import type { PointerEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
+import { MathFormula } from './math-formula';
 import { getSvgPoint } from './svg-point';
 
 const PIVOT = { x: 150, y: 48 };
@@ -256,9 +257,7 @@ export function Pendulum() {
         />
       </svg>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-4 m-0 text-center font-serif text-muted text-sm italic">
-        θ̈ + (g/ℓ) sin θ = 0
-      </p>
+      <MathFormula formula={String.raw`\ddot{\theta}+\dfrac{g}{\ell}\sin\theta=0`} />
     </div>
   );
 }

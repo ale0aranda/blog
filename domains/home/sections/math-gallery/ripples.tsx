@@ -3,6 +3,7 @@
 import type { PointerEvent } from 'react';
 import { useRef, useState } from 'react';
 
+import { MathFormula } from './math-formula';
 import { getSvgPoint } from './svg-point';
 import { useCurveAnimation } from './use-curve-animation';
 
@@ -138,9 +139,7 @@ export function Ripples() {
         />
       </svg>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-4 m-0 bg-surface/90 py-1 text-center font-serif text-muted text-sm italic">
-        r = ct
-      </p>
+      <MathFormula formula="r=ct`" />
     </div>
   );
 }

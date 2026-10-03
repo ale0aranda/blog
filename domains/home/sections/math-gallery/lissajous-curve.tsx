@@ -1,5 +1,6 @@
 'use client';
 
+import { MathFormula } from './math-formula';
 import { useCurveAnimation } from './use-curve-animation';
 
 const TAU = Math.PI * 2;
@@ -134,9 +135,7 @@ export function LissajousCurve() {
         />
       </svg>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-4 m-0 text-center font-serif text-muted text-sm italic">
-        x = sin(3t), y = sin(2t)
-      </p>
+      <MathFormula formula={String.raw`x=\sin(3t),\quad y=\sin(2t)`} />
     </div>
   );
 }

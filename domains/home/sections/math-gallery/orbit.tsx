@@ -1,5 +1,6 @@
 'use client';
 
+import { MathFormula } from './math-formula';
 import { useCurveAnimation } from './use-curve-animation';
 
 const TAU = Math.PI * 2;
@@ -126,9 +127,7 @@ export function Orbit() {
         />
       </svg>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-4 m-0 text-center font-serif text-muted text-sm italic">
-        x²/a² + y²/b² = 1
-      </p>
+      <MathFormula formula={String.raw`\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1`} />
     </div>
   );
 }

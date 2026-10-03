@@ -1,5 +1,6 @@
 'use client';
 
+import { MathFormula } from './math-formula';
 import { useCurveAnimation } from './use-curve-animation';
 
 const TAU = Math.PI * 2;
@@ -115,9 +116,7 @@ export function SineWave() {
         />
       </svg>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-4 m-0 text-center font-serif text-muted text-sm italic">
-        y = sin(x)
-      </p>
+      <MathFormula formula={String.raw`y=\sin(x)`} />
     </div>
   );
 }
