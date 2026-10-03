@@ -3,6 +3,17 @@
 
 @plugin '@tailwindcss/typography';
 
+@custom-variant dark (
+  &:where(
+    [data-theme='dark'],
+    [data-theme='dark'] *,
+    [data-theme='dracula'],
+    [data-theme='dracula'] *,
+    [data-theme='forest'],
+    [data-theme='forest'] *
+  )
+);
+
 @theme inline {
   --color-bg: var(--color-bg);
   --color-fg: var(--color-fg);

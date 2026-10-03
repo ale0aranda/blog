@@ -1,5 +1,38 @@
 {
   "title": "Proyectos",
-  "description": "Mis proyectos personales y profesionales.",
-  "empty": "No hay resultados."
+  "description": "Herramientas, experimentos e ideas que construyo con otros.",
+  "back": "Inicio",
+  "empty": "No hay proyectos que coincidan.",
+  "filterLabel": "Filtrar proyectos por tema",
+  "search": "Buscar proyectos",
+  "closeSearch": "Cerrar búsqueda",
+  "searchPlaceholder": "Nombre, descripción o tecnología…",
+  "visit": "Visitar",
+  "visitProject": "Visitar {project}",
+  "source": "Ver el código de {project} en GitHub",
+  "preview": "Vista previa de {project}",
+  "categories": {
+    "all": "Todos",
+    "education": "Educación",
+    "tools": "Herramientas",
+    "community": "Comunidad"
+  },
+  "items": {
+    "escape-room": {
+      "description": "Aprendé programación resolviendo desafíos.",
+      "summary": "Un escape room de Python Chile para aprender Python a través de problemas y pistas."
+    },
+    "diagrama-de-venn": {
+      "description": "Explorá conjuntos y sus relaciones.",
+      "summary": "Un editor visual para construir diagramas de Venn y representar relaciones entre conjuntos."
+    },
+    "entidad-relacion": {
+      "description": "Diseñá modelos entidad-relación y lógicos.",
+      "summary": "Un espacio para modelar entidades, atributos y relaciones, y trabajar con su representación lógica."
+    },
+    "santana-labs": {
+      "description": "Un espacio para experimentos e ideas compartidas.",
+      "summary": "El sitio de Santana Labs: un punto de encuentro para proyectos y experimentos."
+    }
+  }
 }

@@ -1,5 +1,38 @@
 {
   "title": "Projects",
-  "description": "My personal and professional projects.",
-  "empty": "No projects found."
+  "description": "Tools, experiments, and things I build with others.",
+  "back": "Home",
+  "empty": "No matching projects.",
+  "filterLabel": "Filter projects by topic",
+  "search": "Search projects",
+  "closeSearch": "Close search",
+  "searchPlaceholder": "Name, description, or technology…",
+  "visit": "Visit",
+  "visitProject": "Visit {project}",
+  "source": "View {project} source on GitHub",
+  "preview": "Preview of {project}",
+  "categories": {
+    "all": "All",
+    "education": "Education",
+    "tools": "Tools",
+    "community": "Community"
+  },
+  "items": {
+    "escape-room": {
+      "description": "Learn programming by solving challenges.",
+      "summary": "A Python Chile escape room for learning Python through problems and clues."
+    },
+    "diagrama-de-venn": {
+      "description": "Explore sets and their relationships.",
+      "summary": "A visual editor for building Venn diagrams and representing relationships between sets."
+    },
+    "entidad-relacion": {
+      "description": "Design entity-relationship and logical models.",
+      "summary": "A space for modeling entities, attributes, and relationships, and working with their logical representation."
+    },
+    "santana-labs": {
+      "description": "A space for experiments and shared ideas.",
+      "summary": "The Santana Labs website: a meeting point for projects and experiments."
+    }
+  }
 }
