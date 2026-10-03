@@ -52,5 +52,37 @@
       "painting": "Painting a picture together.",
       "mirror": "My girlfriend and me in the mirror."
     }
+  },
+  "mathGallery": {
+    "openFormula": "Show explanation of {name}",
+    "close": "Close",
+    "experiments": {
+      "sine": {
+        "title": "Sine wave",
+        "description": "Sine describes a periodic oscillation. As x changes, y varies between −1 and 1.",
+        "pointLabel": "Position on the sine wave. Use the arrow keys to move the point."
+      },
+      "orbit": {
+        "title": "Elliptical orbit",
+        "description": "This equation defines an ellipse. The parameters a and b are its semi-axes: they control its width and height.",
+        "pointLabel": "Position on the orbit. Use the arrow keys to move the point."
+      },
+      "ripples": {
+        "title": "Concentric ripples",
+        "description": "The radius r increases with time t. The constant c determines how quickly each ripple expands."
+      },
+      "bezier": {
+        "title": "Bézier curve",
+        "description": "Four points define this cubic curve. The two inner points control its shape, while t identifies a position along the path."
+      },
+      "pendulum": {
+        "title": "Pendulum",
+        "description": "This equation describes an ideal pendulum without friction. θ is the angle, g is gravitational acceleration, and ℓ is the pendulum’s length."
+      },
+      "lissajous": {
+        "title": "Lissajous curve",
+        "description": "Two perpendicular oscillations create this figure. The frequencies 3 and 2 determine the pattern traced by the point."
+      }
+    }
   }
 }

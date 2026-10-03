@@ -257,7 +257,10 @@ export function Pendulum() {
         />
       </svg>
 
-      <MathFormula formula={String.raw`\ddot{\theta}+\dfrac{g}{\ell}\sin\theta=0`} />
+      <MathFormula
+        experiment="pendulum"
+        formula={String.raw`\ddot{\theta}+\dfrac{g}{\ell}\sin\theta=0`}
+      />
     </div>
   );
 }

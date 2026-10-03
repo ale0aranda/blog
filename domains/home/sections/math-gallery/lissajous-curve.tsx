@@ -135,7 +135,10 @@ export function LissajousCurve() {
         />
       </svg>
 
-      <MathFormula formula={String.raw`x=\sin(3t),\quad y=\sin(2t)`} />
+      <MathFormula
+        experiment="lissajous"
+        formula={String.raw`x=\sin(3t),\quad y=\sin(2t)`}
+      />
     </div>
   );
 }

@@ -244,8 +244,10 @@ export function Bezier() {
           </g>
         ))}
       </svg>
-
-      <MathFormula formula={String.raw`B(t)=\displaystyle\sum_{i=0}^{3} b_{i,3}(t)\,P_i`} />
+      <MathFormula
+        experiment="bezier"
+        formula={String.raw`B(t)=\displaystyle\sum_{i=0}^{3}b_{i,3}(t)\,P_i`}
+      />
     </div>
   );
 }

@@ -139,7 +139,10 @@ export function Ripples() {
         />
       </svg>
 
-      <MathFormula formula="r=ct`" />
+      <MathFormula
+        experiment="ripples"
+        formula="r=ct"
+      />
     </div>
   );
 }

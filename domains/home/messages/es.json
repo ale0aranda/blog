@@ -52,5 +52,37 @@
       "painting": "Pintando un cuadro juntos.",
       "mirror": "Mi polola y yo frente al espejo."
     }
+  },
+  "mathGallery": {
+    "openFormula": "Ver explicación de {name}",
+    "close": "Cerrar",
+    "experiments": {
+      "sine": {
+        "title": "Onda sinusoidal",
+        "description": "El seno describe una oscilación periódica. Al cambiar x, el valor de y varía entre −1 y 1.",
+        "pointLabel": "Posición en la onda seno. Usá las flechas para mover el punto."
+      },
+      "orbit": {
+        "title": "Órbita elíptica",
+        "description": "Esta ecuación define una elipse. Los parámetros a y b son sus semiejes: controlan su anchura y altura.",
+        "pointLabel": "Posición en la órbita. Usá las flechas para mover el punto."
+      },
+      "ripples": {
+        "title": "Ondas concéntricas",
+        "description": "El radio r aumenta con el tiempo t. La constante c determina la velocidad con la que se expande cada onda."
+      },
+      "bezier": {
+        "title": "Curva de Bézier",
+        "description": "Cuatro puntos definen esta curva cúbica. Los dos puntos interiores controlan su forma, mientras t indica una posición a lo largo del recorrido."
+      },
+      "pendulum": {
+        "title": "Péndulo",
+        "description": "La ecuación describe un péndulo ideal sin rozamiento. θ es el ángulo, g la aceleración de la gravedad y ℓ la longitud del péndulo."
+      },
+      "lissajous": {
+        "title": "Curva de Lissajous",
+        "description": "Dos oscilaciones perpendiculares forman esta figura. Las frecuencias 3 y 2 determinan el patrón que recorre el punto."
+      }
+    }
   }
 }
