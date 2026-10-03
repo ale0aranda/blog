@@ -20,7 +20,7 @@ interface DockThemeMenuProps {
 }
 
 export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const t = useTranslations('shared.dock');
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
@@ -58,7 +58,7 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
     };
   }, [open]);
 
-  if (!mounted || !theme) {
+  if (!mounted || !resolvedTheme) {
     return (
       <span
         aria-hidden
@@ -67,7 +67,8 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
     );
   }
 
-  const currentTheme = (theme as DockTheme) in THEME_META ? (theme as DockTheme) : THEMES[0];
+  const currentTheme =
+    (resolvedTheme as DockTheme) in THEME_META ? (resolvedTheme as DockTheme) : THEMES[0];
 
   const currentMeta = THEME_META[currentTheme];
   const CurrentIcon = currentMeta.Icon;
