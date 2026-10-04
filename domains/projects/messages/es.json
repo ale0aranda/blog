@@ -11,6 +11,7 @@
   "visitProject": "Visitar {project}",
   "source": "Ver el código de {project} en GitHub",
   "preview": "Vista previa de {project}",
+  "technologies": "Tecnologías",
   "categories": {
     "all": "Todos",
     "education": "Educación",

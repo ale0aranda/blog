@@ -44,6 +44,12 @@
     },
     "source": "View {project} source on GitHub"
   },
+  "writing": {
+    "title": "Writing",
+    "all": "All writing",
+    "description": "My articles and writing posts.",
+    "empty": "No results found."
+  },
   "gallery": {
     "title": "Gallery",
     "images": {

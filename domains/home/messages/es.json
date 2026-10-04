@@ -44,6 +44,12 @@
     },
     "source": "Ver código de {project} en GitHub"
   },
+  "writing": {
+    "title": "Escritos",
+    "all": "Ver todos",
+    "description": "Mis artículos y posteos de escritura.",
+    "empty": "No hay resultados."
+  },
   "gallery": {
     "title": "Galería",
     "images": {

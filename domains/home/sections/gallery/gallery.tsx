@@ -19,6 +19,11 @@ export function Gallery() {
   }));
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const headingId = useId();
+  const [first, second, third, fourth] = items;
+
+  if (!first || !second || !third || !fourth) {
+    return null;
+  }
 
   return (
     <>
@@ -37,7 +42,7 @@ export function Gallery() {
           <div className="grid h-80 grid-cols-12 grid-rows-6 gap-2 sm:h-96">
             <GalleryImage
               index={0}
-              item={items[0]!}
+              item={first}
               className="col-span-7 row-span-3"
               imageClassName="h-full"
               sizes="(max-width: 640px) 58vw, 330px"
@@ -46,7 +51,7 @@ export function Gallery() {
 
             <GalleryImage
               index={1}
-              item={items[1]!}
+              item={second}
               className="col-span-5 row-span-3"
               imageClassName="h-full"
               sizes="(max-width: 640px) 42vw, 230px"
@@ -55,7 +60,7 @@ export function Gallery() {
 
             <GalleryImage
               index={2}
-              item={items[2]!}
+              item={third}
               className="col-span-4 row-span-3"
               imageClassName="h-full"
               sizes="(max-width: 640px) 34vw, 190px"
@@ -64,7 +69,7 @@ export function Gallery() {
 
             <GalleryImage
               index={3}
-              item={items[3]!}
+              item={fourth}
               className="col-span-8 row-span-3"
               imageClassName="h-full"
               sizes="(max-width: 640px) 66vw, 380px"

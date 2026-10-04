@@ -7,8 +7,6 @@ import projectsEs from '@/domains/projects/messages/es.json';
 import writingEn from '@/domains/writing/messages/en.json';
 import writingEs from '@/domains/writing/messages/es.json';
 
-import contentListEn from '@/shared/ui/content-list/messages/en.json';
-import contentListEs from '@/shared/ui/content-list/messages/es.json';
 import dockEn from '@/shared/ui/dock/messages/en.json';
 import dockEs from '@/shared/ui/dock/messages/es.json';
 import listPageEn from '@/shared/ui/list-page/messages/en.json';
@@ -23,7 +21,6 @@ export const messages = {
       notFound: notFoundEn
     },
     shared: {
-      contentList: contentListEn,
       listPage: listPageEn,
       dock: dockEn
     }
@@ -36,7 +33,6 @@ export const messages = {
       notFound: notFoundEs
     },
     shared: {
-      contentList: contentListEs,
       listPage: listPageEs,
       dock: dockEs
     }

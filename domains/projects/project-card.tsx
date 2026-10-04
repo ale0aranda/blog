@@ -6,7 +6,7 @@ import { useId, useState } from 'react';
 import { Code2, Globe2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-import type { ContentItem } from '@/shared/ui/content-list';
+import type { ContentItem } from '@/shared/types/content-item';
 
 import { getProjectDetails } from './content/project-details';
 import { ProjectChevron } from './project-chevron';

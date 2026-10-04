@@ -1,4 +1,4 @@
-import type { ContentItem } from '@/shared/ui/content-list';
+import type { ContentItem } from '@/shared/types/content-item';
 
 import type { Post } from './post';
 
