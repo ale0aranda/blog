@@ -1,0 +1,27 @@
+---
+title: "C isn't untouchable"
+description: "Rust, ownership, and the habit of mistaking age for superiority."
+date: "2026-10-03"
+tags: ["rust", "linux"]
+draft: false
+---
+
+C has a huge history and deserves recognition. But sometimes I feel like people defend it just because it's old, as if decades of use made it untouchable.
+
+**Being new doesn't make something better. Being old doesn't either.**
+
+Rust offers something I see as a real improvement: *ownership*. The compiler checks who owns a value and how it's borrowed, preventing many memory errors and data races before the program runs. In C, much of that responsibility falls on the programmer.
+
+That's why Rust entering the Linux kernel makes sense to me. Initial support landed in **Linux 6.1, in 2022**, to evaluate whether its benefits were worth the costs. It wasn't about replacing C overnight.
+
+Integration comes with real challenges: maintaining interfaces between both languages, reviewing `unsafe` code, and coordinating changes. Those deserve a technical discussion.
+
+But in 2025, Christoph Hellwig compared the spread of those interfaces to cancer. That's where the discussion loses me.
+
+**You can question a technology without treating the people working on it like that.** I'm not sold on the obsession with rewriting everything in Rust either, but using that as an excuse to dismiss an improvement feels just as lazy.
+
+To me, ownership is a step forward. I'd rather discuss its limits than defend C like a religion.
+
+---
+
+*Sources: [Rust in Linux](https://www.kernel.org/doc/html/v6.7/rust/index.html), [ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html), and [the bindings discussion](https://lists.openwall.net/linux-kernel/2025/02/18/1505).*

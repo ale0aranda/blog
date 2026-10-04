@@ -1,0 +1,27 @@
+---
+title: "C no es intocable"
+description: "Rust, el ownership y la costumbre de confundir antigüedad con superioridad."
+date: "2026-10-03"
+tags: ["rust", "linux"]
+draft: false
+---
+
+C tiene una historia enorme y merece reconocimiento. Pero a veces siento que se lo defiende por ser antiguo, como si llevar décadas usándose lo volviera intocable.
+
+**Que algo sea nuevo no lo hace mejor. Que sea viejo tampoco.**
+
+Rust propone algo que me parece una mejora importante: el *ownership*. El compilador controla quién posee un valor y cómo se presta, evitando muchos errores de memoria y carreras de datos antes de ejecutar el programa. En C, gran parte de esa responsabilidad queda en quien programa.
+
+Por eso me hace sentido que Rust llegara al kernel de Linux. Su soporte inicial entró en **Linux 6.1, en 2022**, para evaluar si sus ventajas compensaban sus costes. No para borrar C de un día para otro.
+
+Integrarlo tiene dificultades reales: mantener las interfaces entre ambos lenguajes, revisar el código `unsafe` y coordinar cambios. Eso merece una discusión técnica.
+
+Pero en 2025, Christoph Hellwig comparó la expansión de esas interfaces con un cáncer. Y ahí me pierde la discusión.
+
+**Puedes cuestionar una tecnología sin tratar así a quienes trabajan en ella.** Tampoco me convence el fanatismo de reescribir todo en Rust, pero usarlo como excusa para despreciar una mejora es igual de flojo.
+
+A mí el ownership me parece un avance. Prefiero discutir sus límites antes que defender C como una religión.
+
+---
+
+*Fuentes: [Rust en Linux](https://www.kernel.org/doc/html/v6.7/rust/index.html), [ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html) y [la discusión sobre los bindings](https://lists.openwall.net/linux-kernel/2025/02/18/1505).*
