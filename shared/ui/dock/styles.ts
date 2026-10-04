@@ -1,15 +1,12 @@
 import { cn } from '@/shared/lib/cn';
 
 export const dockButtonClass = cn(
-  'relative flex size-9 shrink-0 items-center justify-center rounded-full',
-  'text-fg transition-all duration-200 ease-out',
-  'hover:scale-105 hover:bg-bg/80',
-  'active:scale-95',
-  'focus-visible:outline-none',
-  'focus-visible:ring-2',
-  'focus-visible:ring-accent',
-  'focus-visible:ring-offset-2',
-  'focus-visible:ring-offset-surface'
+  'relative flex size-10 shrink-0 items-center justify-center rounded-full',
+  'text-muted transition-colors duration-200',
+  'hover:bg-surface hover:text-fg',
+  'focus-visible:bg-surface focus-visible:text-fg',
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+  'motion-reduce:transition-none'
 );
 
 export const dockItemClass = cn(
@@ -41,6 +38,6 @@ export const dockGroupClass = cn(
 
 export const dockSeparatorClass = 'my-1 h-px bg-border';
 
-export const dockMenuClass = cn('rounded-2xl border border-border bg-surface', 'shadow-xl');
+export const dockMenuClass = cn('rounded-2xl border border-border bg-bg', 'shadow-lg');
 
 export const dockKbdClass = cn('rounded bg-bg px-1.5 py-0.5', 'font-mono text-muted text-xs');

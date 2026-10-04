@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { Command } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-import { CornerBadge } from './corner-badge';
 import { DockTooltip } from './dock-tooltip';
 import { dockButtonClass } from './styles';
 import type { DockPlacement } from './types';
@@ -20,9 +19,7 @@ export function DockCommandButton({ onOpen, placement = 'top' }: DockCommandButt
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      const modifierPressed = event.metaKey || event.ctrlKey;
-
-      if (modifierPressed && event.key.toLowerCase() === 'k') {
+      if (!event.repeat && (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
         event.preventDefault();
         onOpen?.();
       }
@@ -41,16 +38,16 @@ export function DockCommandButton({ onOpen, placement = 'top' }: DockCommandButt
       placement={placement}
     >
       <button
-        type="button"
-        onClick={onOpen}
         aria-label={t('aria.openCommand')}
         className={dockButtonClass}
+        onClick={onOpen}
+        type="button"
       >
         <Command
-          size={17}
+          aria-hidden="true"
+          size={19}
           strokeWidth={1.6}
         />
-        <CornerBadge>K</CornerBadge>
       </button>
     </DockTooltip>
   );

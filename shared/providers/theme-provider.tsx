@@ -9,10 +9,13 @@ export function ThemeProvider({ children }: PropsWithChildren) {
   return (
     <NextThemesProvider
       attribute="data-theme"
-      themes={[...THEMES]}
       defaultTheme="system"
-      enableSystem
       disableTransitionOnChange
+      enableSystem
+      scriptProps={{
+        type: typeof window === 'undefined' ? 'text/javascript' : 'application/json'
+      }}
+      themes={[...THEMES]}
     >
       {children}
     </NextThemesProvider>

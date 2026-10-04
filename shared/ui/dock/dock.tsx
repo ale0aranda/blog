@@ -1,8 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { useTranslations } from 'next-intl';
+import { House } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+
+import { Link, usePathname } from '@/i18n/navigation';
 
 import { cn } from '@/shared/lib/cn';
 import { FadeIn } from '@/shared/motion/components/fade-in';
@@ -11,6 +14,8 @@ import { CommandPalette } from './command-palette';
 import { DockCommandButton } from './dock-command-button';
 import { DockLocaleToggle } from './dock-locale-toggle';
 import { DockThemeMenu } from './dock-theme-menu';
+import { DockTooltip } from './dock-tooltip';
+import { dockButtonClass } from './styles';
 
 interface DockProps {
   className?: string;
@@ -20,70 +25,55 @@ export function Dock({ className }: DockProps) {
   const [commandOpen, setCommandOpen] = useState(false);
 
   const t = useTranslations('shared.dock');
+  const locale = useLocale();
+  const pathname = usePathname();
+
+  const homeLabel = locale === 'es' ? 'Inicio' : 'Home';
+  const isHome = pathname === '/';
+
+  const openCommand = useCallback(() => {
+    setCommandOpen(true);
+  }, []);
 
   return (
     <>
-      {/* Mobile */}
-      <FadeIn
-        as="nav"
-        animate="mount"
-        y={12}
-        aria-label={t('aria.preferences')}
+      <div
         className={cn(
-          'fixed inset-x-0 bottom-0 z-50 flex items-center justify-evenly',
-          'border-border border-t bg-surface/95 backdrop-blur-sm',
-          'px-6 pt-2 pb-safe',
-          'lg:hidden',
+          'pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center pb-safe',
           className
         )}
       >
-        <div className="flex flex-col items-center gap-1">
-          <DockCommandButton
-            onOpen={() => setCommandOpen(true)}
-            placement="top"
-          />
-          <span className="font-mono text-muted text-xs">{t('command.search')}</span>
-        </div>
+        <FadeIn
+          animate="mount"
+          delay={0.1}
+          y={12}
+          className="pointer-events-auto"
+        >
+          <nav
+            aria-label={t('aria.preferences')}
+            className="flex items-center gap-2 rounded-full border border-border bg-bg/95 px-3 py-2 shadow-lg backdrop-blur-md"
+          >
+            <DockTooltip label={homeLabel}>
+              <Link
+                aria-current={isHome ? 'page' : undefined}
+                aria-label={homeLabel}
+                className={cn(dockButtonClass, isHome && 'text-accent')}
+                href="/"
+              >
+                <House
+                  aria-hidden="true"
+                  size={19}
+                  strokeWidth={1.6}
+                />
+              </Link>
+            </DockTooltip>
 
-        <div className="flex flex-col items-center gap-1">
-          <DockLocaleToggle placement="top" />
-          <span className="font-mono text-muted text-xs">{t('groups.language')}</span>
-        </div>
-
-        <div className="flex flex-col items-center gap-1">
-          <DockThemeMenu placement="top" />
-          <span className="font-mono text-muted text-xs">{t('groups.theme')}</span>
-        </div>
-      </FadeIn>
-
-      {/* Desktop */}
-      <FadeIn
-        as="nav"
-        animate="mount"
-        y={18}
-        delay={0.1}
-        aria-label={t('aria.preferences')}
-        className={cn(
-          'fixed top-1/2 right-6 z-50 hidden -translate-y-1/2 lg:flex',
-          'flex-col items-center gap-3.5',
-          className
-        )}
-      >
-        <DockCommandButton
-          onOpen={() => setCommandOpen(true)}
-          placement="left"
-        />
-        <span
-          aria-hidden
-          className="size-1 rounded-full bg-border"
-        />
-        <DockLocaleToggle placement="left" />
-        <span
-          aria-hidden
-          className="size-1 rounded-full bg-border"
-        />
-        <DockThemeMenu placement="left" />
-      </FadeIn>
+            <DockCommandButton onOpen={openCommand} />
+            <DockLocaleToggle />
+            <DockThemeMenu />
+          </nav>
+        </FadeIn>
+      </div>
 
       <CommandPalette
         open={commandOpen}

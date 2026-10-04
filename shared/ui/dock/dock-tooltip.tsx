@@ -8,27 +8,38 @@ interface DockTooltipProps {
   label: string;
   placement?: DockPlacement;
   children: ReactNode;
+  disabled?: boolean;
 }
 
-export function DockTooltip({ label, placement = 'top', children }: DockTooltipProps) {
+export function DockTooltip({
+  label,
+  placement = 'top',
+  children,
+  disabled = false
+}: DockTooltipProps) {
   return (
     <span className="group relative flex">
       {children}
 
-      <span
-        role="tooltip"
-        className={cn(
-          'pointer-events-none absolute whitespace-nowrap rounded-md',
-          'bg-fg px-2 py-1 font-mono text-bg text-xs tracking-wide',
-          'opacity-0 transition duration-150 ease-out',
-          'group-hover:opacity-100',
-          placement === 'left'
-            ? ['top-1/2 right-full mr-2.5', '-translate-y-1/2', 'group-hover:-translate-x-0.5']
-            : ['bottom-full left-1/2 mb-2.5', '-translate-x-1/2', 'group-hover:-translate-y-0.5']
-        )}
-      >
-        {label}
-      </span>
+      {!disabled && (
+        <span
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute whitespace-nowrap rounded-lg',
+            'border border-border bg-bg px-2.5 py-1.5',
+            'font-mono text-muted text-xs shadow-sm',
+            'invisible opacity-0 transition-opacity duration-150',
+            'group-hover:visible group-hover:opacity-100',
+            'group-focus-within:visible group-focus-within:opacity-100',
+            'motion-reduce:transition-none',
+            placement === 'left'
+              ? 'top-1/2 right-full mr-3 -translate-y-1/2'
+              : 'bottom-full left-1/2 mb-3 -translate-x-1/2'
+          )}
+        >
+          {label}
+        </span>
+      )}
     </span>
   );
 }
