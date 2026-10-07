@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
     const readerId = existingReaderId ?? randomUUID();
     const redis = Redis.fromEnv();
 
-    const result = await redis.eval<[number, number]>(READ_SCRIPT, [key], [readerId]);
+    const result = await redis.eval<[string], [number, number]>(READ_SCRIPT, [key], [readerId]);
 
     const response = resultResponse(result);
 
@@ -156,7 +156,7 @@ export async function POST(request: NextRequest) {
   try {
     const redis = Redis.fromEnv();
 
-    const result = await redis.eval<[number, number]>(
+    const result = await redis.eval<[string, string], [number, number]>(
       UPDATE_SCRIPT,
       [key],
       [readerId, String(body.liked)]
