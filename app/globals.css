@@ -135,3 +135,57 @@ code[data-theme] span {
 @utility pb-safe {
   padding-bottom: calc(env(safe-area-inset-bottom) + 0.375rem);
 }
+
+@keyframes spotify-equalizer {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.spotify-equalizer > :where(span) {
+  transform-origin: bottom;
+  animation: spotify-equalizer 850ms ease-in-out infinite;
+}
+
+.spotify-equalizer > :where(span):nth-child(2) {
+  animation-delay: -400ms;
+  animation-duration: 1050ms;
+}
+
+.spotify-equalizer > :where(span):nth-child(3) {
+  animation-delay: -650ms;
+  animation-duration: 750ms;
+}
+
+.spotify-equalizer > :where(span):nth-child(4) {
+  animation-delay: -250ms;
+  animation-duration: 950ms;
+}
+
+@keyframes spotify-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spotify-song-card:not([hidden]) {
+  animation: spotify-card-enter 160ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotify-equalizer > :where(span),
+  .spotify-song-card:not([hidden]) {
+    animation: none;
+  }
+}

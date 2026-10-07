@@ -4,6 +4,7 @@ import { useCurrentTime } from '@/shared/hooks/use-current-time';
 import { FadeIn } from '@/shared/motion/components/fade-in';
 
 import { FOOTER_LOCATION, FOOTER_TIMEZONE } from './footer.constants';
+import { NowPlaying } from './now-playing';
 import { VisitCounter } from './visit-counter';
 
 export function Footer() {
@@ -35,7 +36,10 @@ export function Footer() {
         )}
       </p>
 
-      <VisitCounter />
+      <div className="flex items-center gap-3">
+        <NowPlaying />
+        <VisitCounter />
+      </div>
     </FadeIn>
   );
 }

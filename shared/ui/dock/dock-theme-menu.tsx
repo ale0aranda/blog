@@ -110,7 +110,7 @@ export function DockThemeMenu({ placement = 'top' }: DockThemeMenuProps) {
 
       {open && (
         <fieldset
-          className={cn('absolute m-0 min-w-0 w-40 p-1.5', dockMenuClass, menuPosition)}
+          className={cn('absolute m-0 w-40 min-w-0 p-1.5', dockMenuClass, menuPosition)}
           id={panelId}
           ref={panelRef}
         >
