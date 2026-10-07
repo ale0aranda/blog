@@ -10,6 +10,7 @@ import { rehypePlugins, remarkPlugins } from '../lib/plugins';
 import { getPostBySlug } from '../lib/posts';
 import { mdxComponents } from './internal/mdx-components';
 import { PostBackLink } from './internal/post-back-link';
+import { PostLikeButton } from './internal/post-like-button';
 
 type PostViewProps = {
   locale: string;
@@ -30,6 +31,7 @@ export function PostView({ locale, slug }: PostViewProps) {
   return (
     <>
       <JsonLd data={blogPostingJsonLd(post, locale)} />
+
       <div className="mx-auto flex w-full max-w-2xl flex-col px-6 py-20">
         <PostBackLink />
 
@@ -72,6 +74,14 @@ export function PostView({ locale, slug }: PostViewProps) {
             }}
           />
         </FadeIn>
+
+        <div className="mt-10 border-border border-t pt-5">
+          <PostLikeButton
+            key={`${locale}/${slug}`}
+            locale={locale}
+            slug={slug}
+          />
+        </div>
       </div>
     </>
   );
