@@ -1,4 +1,4 @@
-import { ArrowUpRight, Clock, Mail, MapPin } from 'lucide-react';
+import { ArrowUpRight, Clock, GitCommitHorizontal, Mail, MapPin } from 'lucide-react';
 
 export type SocialProfile = {
   platform: 'github' | 'x' | 'cal' | 'email';
@@ -13,6 +13,12 @@ export type SocialProfile = {
   duration?: string;
   actionLabel?: string;
   detailLabel?: string;
+  latestCommit?: {
+    message: string;
+    repository: string;
+    url: string;
+    dateLabel: string;
+  };
 };
 
 type SocialProfileCardProps = {
@@ -181,6 +187,46 @@ export function SocialProfileCard({ profile, id }: SocialProfileCardProps) {
 
             {profile.location}
           </span>
+        )}
+
+        {profile.platform === 'github' && profile.latestCommit && (
+          <a
+            className="group/commit mt-3 flex items-start gap-2 rounded-lg border-border border-t px-2 py-2.5 text-left transition-colors hover:bg-fg/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            href={profile.latestCommit.url}
+            rel="noopener noreferrer"
+            target="_blank"
+            title={profile.latestCommit.message}
+          >
+            <GitCommitHorizontal
+              aria-hidden="true"
+              className="mt-0.5 size-3.5 shrink-0 text-muted"
+              strokeWidth={1.5}
+            />
+
+            <span className="block min-w-0 flex-1">
+              <span className="block truncate font-medium text-fg text-xs">
+                {profile.latestCommit.message}
+              </span>
+
+              <span className="mt-1 flex min-w-0 items-center gap-1.5 text-muted text-xs">
+                <span className="truncate">{profile.latestCommit.repository.split('/').pop()}</span>
+
+                <span
+                  aria-hidden="true"
+                  className="opacity-40"
+                >
+                  ·
+                </span>
+
+                <span className="shrink-0">{profile.latestCommit.dateLabel}</span>
+              </span>
+            </span>
+
+            <ArrowUpRight
+              aria-hidden="true"
+              className="mt-0.5 size-3 shrink-0 text-muted transition-colors group-hover/commit:text-fg"
+            />
+          </a>
         )}
 
         {!isX && (profile.repositories !== undefined || profile.followers !== undefined) && (

@@ -1,28 +1,51 @@
 import { Calendar, FileText, Mail } from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
 import { FadeIn } from '@/shared/motion/components/fade-in';
 import { StaggerGroup } from '@/shared/motion/components/stagger-group';
 
-import { getGitHubProfile } from './github-profile';
+import { getGitHubProfile, getLatestGitHubCommit } from './github-profile';
 import { introductionStyles } from './introduction.styles';
 import { GitHubIcon, XIcon } from './introduction-icons';
 import { IntroductionLink } from './introduction-link';
 import type { SocialProfile } from './social-profile-card';
 
 export async function Introduction() {
-  const [t, github] = await Promise.all([getTranslations('home.introduction'), getGitHubProfile()]);
+  const [t, github, latestCommit, locale] = await Promise.all([
+    getTranslations('home.introduction'),
+    getGitHubProfile(),
+    getLatestGitHubCommit(),
+    getLocale()
+  ]);
 
   const sharedIdentity = {
     name: github?.name || 'Alejandro Aranda',
     ...(github ? { avatar: github.avatar_url } : {})
   };
 
+  const commitDateLabel = latestCommit
+    ? new Intl.DateTimeFormat(locale, {
+        day: 'numeric',
+        month: 'short',
+        timeZone: 'America/Santiago'
+      }).format(new Date(latestCommit.pushedAt))
+    : '';
+
   const githubProfile: SocialProfile = {
     ...sharedIdentity,
     platform: 'github',
     username: github?.login ?? 'ale0aranda',
     bio: github?.bio ?? '',
+    ...(latestCommit
+      ? {
+          latestCommit: {
+            message: latestCommit.message,
+            repository: latestCommit.repository,
+            url: latestCommit.url,
+            dateLabel: commitDateLabel
+          }
+        }
+      : {}),
     ...(github?.location ? { location: github.location } : {}),
     ...(github
       ? {
