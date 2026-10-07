@@ -11,6 +11,7 @@ import { getPostBySlug } from '../lib/posts';
 import { mdxComponents } from './internal/mdx-components';
 import { PostBackLink } from './internal/post-back-link';
 import { PostLikeButton } from './internal/post-like-button';
+import { PostShareButton } from './internal/post-share-button';
 
 type PostViewProps = {
   locale: string;
@@ -75,12 +76,14 @@ export function PostView({ locale, slug }: PostViewProps) {
           />
         </FadeIn>
 
-        <div className="mt-10 border-border border-t pt-5">
+        <div className="mt-10 flex items-start gap-2 border-border border-t pt-5">
           <PostLikeButton
             key={`${locale}/${slug}`}
             locale={locale}
             slug={slug}
           />
+
+          <PostShareButton key={`share/${locale}/${slug}`} />
         </div>
       </div>
     </>
