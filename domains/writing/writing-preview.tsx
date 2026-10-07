@@ -8,7 +8,7 @@ type WritingProps = {
   items: ContentItem[];
 };
 
-export function Writing({ items }: WritingProps) {
+export function WritingPreview({ items }: WritingProps) {
   if (items.length === 0) {
     return null;
   }
@@ -20,6 +20,7 @@ export function Writing({ items }: WritingProps) {
     >
       <FadeIn animate="mount">
         <SectionHeader
+          count={items.length}
           headingId="home-writing-title"
           href="/writing"
           translationNamespace="home.writing"

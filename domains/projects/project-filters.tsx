@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl';
 
 import { cn } from '@/shared/lib/cn';
 
-import type { ProjectCategory } from './content/project-details';
-import { projectCategories } from './content/project-details';
+import type { ProjectCategory } from './content/projects';
+import { projectCategories } from './content/projects';
 
 type ProjectFiltersProps = {
   selected: ProjectCategory;

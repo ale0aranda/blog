@@ -35,14 +35,7 @@
   },
   "projects": {
     "title": "Projects",
-    "all": "All projects",
-    "descriptions": {
-      "escape-room": "Learn programming by solving challenges.",
-      "entidad-relacion": "Design data models visually.",
-      "diagrama-de-venn": "Explore sets and their relationships.",
-      "santana-labs": "A space for building open-source tools."
-    },
-    "source": "View {project} source on GitHub"
+    "all": "All projects"
   },
   "writing": {
     "title": "Writing",

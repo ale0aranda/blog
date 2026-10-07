@@ -20,20 +20,29 @@
   },
   "items": {
     "escape-room": {
+      "title": "Python Escape Room",
       "description": "Learn programming by solving challenges.",
       "summary": "A Python Chile escape room for learning Python through problems and clues."
     },
     "diagrama-de-venn": {
+      "title": "Venn Designer",
       "description": "Explore sets and their relationships.",
       "summary": "A visual editor for building Venn diagrams and representing relationships between sets."
     },
     "entidad-relacion": {
+      "title": "MER Designer",
       "description": "Design entity-relationship and logical models.",
       "summary": "A space for modeling entities, attributes, and relationships, and working with their logical representation."
     },
     "santana-labs": {
+      "title": "Santana Labs",
       "description": "A space for experiments and shared ideas.",
       "summary": "The Santana Labs website: a meeting point for projects and experiments."
+    },
+    "f0rma": {
+      "title": "f0rma",
+      "description": "Create a highly configurable professional profile with a unique design.",
+      "summary": "A tool for creating a professional profile that is highly customizable and visually appealing."
     }
   }
 }

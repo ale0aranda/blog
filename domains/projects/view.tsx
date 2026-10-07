@@ -10,8 +10,7 @@ import { Link } from '@/i18n/navigation';
 import { FadeIn } from '@/shared/motion/components/fade-in';
 import { Container } from '@/shared/ui/container';
 
-import type { ProjectCategory } from './content/project-details';
-import { getProjectDetails } from './content/project-details';
+import type { ProjectCategory } from './content/projects';
 import { projects } from './content/projects';
 import { ProjectCard } from './project-card';
 import { ProjectFilters } from './project-filters';
@@ -23,7 +22,7 @@ export function ProjectsView() {
   const [openId, setOpenId] = useState<string | null>('diagrama-de-venn');
 
   const visibleProjects = projects.filter((project) => {
-    return category === 'all' || getProjectDetails(project.id)?.category === category;
+    return category === 'all' || project.category === category;
   });
 
   return (

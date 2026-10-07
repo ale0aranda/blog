@@ -6,15 +6,13 @@ import { useId, useState } from 'react';
 import { Code2, Globe2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-import type { ContentItem } from '@/shared/types/content-item';
-
-import { getProjectDetails } from './content/project-details';
+import type { Project } from './content/projects';
 import { ProjectChevron } from './project-chevron';
 import { ProjectIcon } from './project-icon';
 import { ProjectTechnology } from './project-technology';
 
 type ProjectCardProps = {
-  project: ContentItem;
+  project: Project;
   open: boolean;
   onToggle: () => void;
 };
@@ -28,12 +26,12 @@ export function ProjectCard({ project, open, onToggle }: ProjectCardProps) {
   const headingId = useId();
 
   const [activation, setActivation] = useState(0);
-  const details = getProjectDetails(project.id);
-
+  const titleKey = `items.${project.id}.title`;
   const descriptionKey = `items.${project.id}.description`;
   const summaryKey = `items.${project.id}.summary`;
 
-  const description = t.has(descriptionKey) ? t(descriptionKey) : project.description;
+  const title = t(titleKey);
+  const description = t(descriptionKey);
 
   function toggleProject() {
     setActivation((current) => current + 1);
@@ -57,7 +55,7 @@ export function ProjectCard({ project, open, onToggle }: ProjectCardProps) {
 
           <span className="min-w-0 flex-1">
             <span className="block font-medium text-fg text-sm tracking-tight transition-colors group-hover:text-accent motion-reduce:transition-none">
-              {project.title}
+              {title}
             </span>
 
             {description && (
@@ -80,14 +78,14 @@ export function ProjectCard({ project, open, onToggle }: ProjectCardProps) {
         id={panelId}
       >
         <div className="px-4 pb-4">
-          {details?.image && (
+          {project.image && (
             <div className="relative mb-4 aspect-video overflow-hidden rounded-xl border border-border bg-surface">
               <Image
-                alt={t('preview', { project: project.title })}
+                alt={t('preview', { project: title })}
                 className="object-cover"
                 fill
                 sizes="(max-width: 640px) 90vw, 480px"
-                src={details.image}
+                src={project.image}
               />
             </div>
           )}
@@ -101,7 +99,7 @@ export function ProjectCard({ project, open, onToggle }: ProjectCardProps) {
               aria-label={t('technologies')}
               className="m-0 flex min-w-0 flex-wrap gap-1.5 p-0"
             >
-              {details?.technologies.map((technology) => (
+              {project.technologies.map((technology) => (
                 <ProjectTechnology
                   key={technology}
                   technology={technology}
@@ -110,30 +108,28 @@ export function ProjectCard({ project, open, onToggle }: ProjectCardProps) {
             </ul>
 
             <div className="flex shrink-0 items-center gap-1">
-              {details && (
-                <a
-                  aria-label={t('visitProject', { project: project.title })}
-                  className={actionClass}
-                  href={details.website}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title={t('visitProject', { project: project.title })}
-                >
-                  <Globe2
-                    aria-hidden="true"
-                    className="size-4"
-                    strokeWidth={1.5}
-                  />
-                </a>
-              )}
-
               <a
-                aria-label={t('source', { project: project.title })}
+                aria-label={t('visitProject', { project: title })}
                 className={actionClass}
-                href={details?.repository ?? project.href}
+                href={project.website}
                 rel="noopener noreferrer"
                 target="_blank"
-                title={t('source', { project: project.title })}
+                title={t('visitProject', { project: title })}
+              >
+                <Globe2
+                  aria-hidden="true"
+                  className="size-4"
+                  strokeWidth={1.5}
+                />
+              </a>
+
+              <a
+                aria-label={t('source', { project: title })}
+                className={actionClass}
+                href={project.repository}
+                rel="noopener noreferrer"
+                target="_blank"
+                title={t('source', { project: title })}
               >
                 <Code2
                   aria-hidden="true"

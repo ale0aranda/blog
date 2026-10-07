@@ -8,9 +8,15 @@ type SectionHeaderProps = {
   translationNamespace: 'home.projects' | 'home.writing';
   headingId: string;
   href: '/projects' | '/writing';
+  count: number;
 };
 
-export function SectionHeader({ translationNamespace, headingId, href }: SectionHeaderProps) {
+export function SectionHeader({
+  count,
+  translationNamespace,
+  headingId,
+  href
+}: SectionHeaderProps) {
   const t = useTranslations(translationNamespace);
 
   return (
@@ -32,6 +38,13 @@ export function SectionHeader({ translationNamespace, headingId, href }: Section
         href={href}
       >
         {t('all')}
+
+        <span
+          aria-hidden="true"
+          className="font-mono text-xs tabular-nums opacity-60"
+        >
+          {count}
+        </span>
 
         <span
           aria-hidden="true"

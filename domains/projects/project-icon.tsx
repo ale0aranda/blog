@@ -1,4 +1,4 @@
-import { FlaskConical, GitBranch, Puzzle, Shapes } from 'lucide-react';
+import { FlaskConical, GitBranch, PanelsTopLeft, Puzzle, Shapes } from 'lucide-react';
 
 import { cn } from '@/shared/lib/cn';
 
@@ -22,6 +22,10 @@ const visuals = {
   'santana-labs': {
     Icon: FlaskConical,
     className: 'bg-fg/5 text-muted'
+  },
+  f0rma: {
+    Icon: PanelsTopLeft,
+    className: 'bg-sky-500/10 text-sky-600'
   }
 };
 

@@ -35,14 +35,7 @@
   },
   "projects": {
     "title": "Proyectos",
-    "all": "Todos los proyectos",
-    "descriptions": {
-      "escape-room": "Aprendé programación resolviendo desafíos.",
-      "entidad-relacion": "Diseñá modelos de datos de forma visual.",
-      "diagrama-de-venn": "Explorá conjuntos y sus relaciones.",
-      "santana-labs": "Un espacio para construir herramientas abiertas."
-    },
-    "source": "Ver código de {project} en GitHub"
+    "all": "Todos los proyectos"
   },
   "writing": {
     "title": "Escritos",

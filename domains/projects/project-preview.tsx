@@ -8,11 +8,11 @@ import { FadeIn } from '@/shared/motion/components/fade-in';
 import { StaggerGroup } from '@/shared/motion/components/stagger-group';
 import { SectionHeader } from '@/shared/ui/section-header';
 
-import { ProjectItem } from './project-item';
+import { ProjectPreviewItem } from './project-preview-item';
 
 const PREVIEW_LIMIT = 3;
 
-export function Projects() {
+export function ProjectPreview() {
   const headingId = useId();
 
   return (
@@ -26,6 +26,7 @@ export function Projects() {
         className="mb-4"
       >
         <SectionHeader
+          count={projects.length}
           headingId={headingId}
           href="/projects"
           translationNamespace="home.projects"
@@ -38,7 +39,7 @@ export function Projects() {
             as="li"
             key={project.id}
           >
-            <ProjectItem project={project} />
+            <ProjectPreviewItem project={project} />
           </FadeIn>
         ))}
       </ul>

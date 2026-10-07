@@ -124,142 +124,147 @@ export function Pendulum() {
 
   const position = getPosition(angle);
 
+  const graph = (
+    <svg
+      className="block w-full text-fg"
+      fill="none"
+      strokeLinecap="round"
+      viewBox="0 0 300 300"
+    >
+      <title>Pendulum. Lift the sphere and let it go.</title>
+
+      <path
+        d={arc}
+        opacity="0.1"
+        stroke="currentColor"
+        strokeDasharray="2 6"
+        strokeWidth="1"
+      />
+
+      <line
+        opacity="0.1"
+        stroke="currentColor"
+        strokeDasharray="3 5"
+        x1={PIVOT.x}
+        x2={PIVOT.x}
+        y1={PIVOT.y}
+        y2={PIVOT.y + LENGTH}
+      />
+
+      <line
+        opacity="0.25"
+        stroke="currentColor"
+        x1="131"
+        x2="169"
+        y1={PIVOT.y}
+        y2={PIVOT.y}
+      />
+
+      <line
+        opacity="0.65"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        x1={PIVOT.x}
+        x2={position.x}
+        y1={PIVOT.y}
+        y2={position.y}
+      />
+
+      <circle
+        cx={PIVOT.x}
+        cy={PIVOT.y}
+        fill="currentColor"
+        opacity="0.5"
+        r="2.5"
+      />
+
+      <circle
+        className="pointer-events-none transition-all duration-150"
+        cx={position.x}
+        cy={position.y}
+        fill="currentColor"
+        opacity={dragging ? 0.1 : 0.04}
+        r={dragging ? 17 : 12}
+      />
+
+      <circle
+        className="pointer-events-none"
+        cx={position.x}
+        cy={position.y}
+        fill="currentColor"
+        opacity="0.8"
+        r="6"
+      />
+
+      <circle
+        aria-label="Angle of the pendulum"
+        aria-valuemax={66}
+        aria-valuemin={-66}
+        aria-valuenow={Math.round((angle * 180) / Math.PI)}
+        aria-valuetext={`${Math.round((angle * 180) / Math.PI)} degrees`}
+        className="cursor-grab touch-none outline-none focus-visible:stroke-current active:cursor-grabbing"
+        cx={position.x}
+        cy={position.y}
+        data-interactive="true"
+        fill="transparent"
+        onKeyDown={(event) => {
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            updateAngle(simulationRef.current.angle - 0.08);
+          }
+
+          if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            updateAngle(simulationRef.current.angle + 0.08);
+          }
+
+          if (event.key === 'Home') {
+            event.preventDefault();
+            updateAngle(0);
+          }
+        }}
+        onLostPointerCapture={stopDragging}
+        onPointerCancel={stopDragging}
+        onPointerDown={(event) => {
+          if (!event.isPrimary || event.button !== 0) {
+            return;
+          }
+
+          event.preventDefault();
+          pointerRef.current = event.pointerId;
+          simulationRef.current.velocity = 0;
+          setDragging(true);
+
+          event.currentTarget.setPointerCapture(event.pointerId);
+        }}
+        onPointerMove={movePoint}
+        onPointerUp={(event) => {
+          if (pointerRef.current !== event.pointerId) {
+            return;
+          }
+
+          movePoint(event);
+          stopDragging();
+
+          if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+            event.currentTarget.releasePointerCapture(event.pointerId);
+          }
+        }}
+        r="20"
+        role="slider"
+        tabIndex={0}
+      />
+    </svg>
+  );
+
   return (
     <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-surface">
-      <svg
-        className="block w-full text-fg"
-        fill="none"
-        strokeLinecap="round"
-        viewBox="0 0 300 300"
-      >
-        <title>PPendulum. Lift the sphere and let it go.</title>
-
-        <path
-          d={arc}
-          opacity="0.1"
-          stroke="currentColor"
-          strokeDasharray="2 6"
-          strokeWidth="1"
-        />
-
-        <line
-          opacity="0.1"
-          stroke="currentColor"
-          strokeDasharray="3 5"
-          x1={PIVOT.x}
-          x2={PIVOT.x}
-          y1={PIVOT.y}
-          y2={PIVOT.y + LENGTH}
-        />
-
-        <line
-          opacity="0.25"
-          stroke="currentColor"
-          x1="131"
-          x2="169"
-          y1={PIVOT.y}
-          y2={PIVOT.y}
-        />
-
-        <line
-          opacity="0.65"
-          stroke="currentColor"
-          strokeWidth="1.2"
-          x1={PIVOT.x}
-          x2={position.x}
-          y1={PIVOT.y}
-          y2={position.y}
-        />
-
-        <circle
-          cx={PIVOT.x}
-          cy={PIVOT.y}
-          fill="currentColor"
-          opacity="0.5"
-          r="2.5"
-        />
-
-        <circle
-          className="pointer-events-none transition-all duration-150"
-          cx={position.x}
-          cy={position.y}
-          fill="currentColor"
-          opacity={dragging ? 0.1 : 0.04}
-          r={dragging ? 17 : 12}
-        />
-
-        <circle
-          className="pointer-events-none"
-          cx={position.x}
-          cy={position.y}
-          fill="currentColor"
-          opacity="0.8"
-          r="6"
-        />
-
-        <circle
-          aria-label="Angle of the pendulum"
-          aria-valuemax={66}
-          aria-valuemin={-66}
-          aria-valuenow={Math.round((angle * 180) / Math.PI)}
-          aria-valuetext={`${Math.round((angle * 180) / Math.PI)} degrees`}
-          className="cursor-grab touch-none outline-none focus-visible:stroke-current active:cursor-grabbing"
-          cx={position.x}
-          cy={position.y}
-          data-interactive="true"
-          fill="transparent"
-          onKeyDown={(event) => {
-            if (event.key === 'ArrowLeft') {
-              event.preventDefault();
-              updateAngle(simulationRef.current.angle - 0.08);
-            }
-
-            if (event.key === 'ArrowRight') {
-              event.preventDefault();
-              updateAngle(simulationRef.current.angle + 0.08);
-            }
-
-            if (event.key === 'Home') {
-              event.preventDefault();
-              updateAngle(0);
-            }
-          }}
-          onLostPointerCapture={stopDragging}
-          onPointerCancel={stopDragging}
-          onPointerDown={(event) => {
-            if (!event.isPrimary || event.button !== 0) {
-              return;
-            }
-
-            event.preventDefault();
-            pointerRef.current = event.pointerId;
-            simulationRef.current.velocity = 0;
-            setDragging(true);
-
-            event.currentTarget.setPointerCapture(event.pointerId);
-          }}
-          onPointerMove={movePoint}
-          onPointerUp={(event) => {
-            if (pointerRef.current !== event.pointerId) {
-              return;
-            }
-
-            movePoint(event);
-            stopDragging();
-
-            if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-              event.currentTarget.releasePointerCapture(event.pointerId);
-            }
-          }}
-          r="20"
-          role="slider"
-          tabIndex={0}
-        />
-      </svg>
+      {graph}
 
       <MathFormula
         experiment="pendulum"
         formula={String.raw`\ddot{\theta}+\dfrac{g}{\ell}\sin\theta=0`}
+        graph={graph}
       />
     </div>
   );
