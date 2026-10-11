@@ -37,7 +37,6 @@ export function PostView({ locale, slug }: PostViewProps) {
 
       <PostReadingMode
         key={`${locale}/${slug}`}
-        locale={locale}
         backLink={<PostBackLink />}
       >
         <FadeIn

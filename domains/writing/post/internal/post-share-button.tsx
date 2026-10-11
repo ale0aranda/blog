@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Check, Link2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { copyToClipboard } from '@/shared/lib/clipboard';
 
@@ -11,6 +12,7 @@ type CopyStatus = 'idle' | 'copied' | 'error';
 export function PostShareButton() {
   const [status, setStatus] = useState<CopyStatus>('idle');
   const busyRef = useRef(false);
+  const t = useTranslations('domains.writing.share');
 
   useEffect(() => {
     if (status === 'idle') {
@@ -47,13 +49,13 @@ export function PostShareButton() {
     }
   }
 
-  const label = status === 'copied' ? 'Link copied' : status === 'error' ? 'Try again' : 'Share';
+  const label = status === 'copied' ? t('copied') : status === 'error' ? t('retry') : t('share');
 
   return (
     <div className="relative">
       <button
-        aria-label="Copy post link"
-        className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 text-muted text-sm transition-colors hover:bg-fg/5 hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        aria-label={t('copyAria')}
+        className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 text-muted text-sm transition-colors hover:bg-fg/5 hover:text-fg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
         onClick={() => {
           void handleShare();
         }}
@@ -78,11 +80,7 @@ export function PostShareButton() {
         aria-live="polite"
         className="sr-only"
       >
-        {status === 'copied'
-          ? 'Post link copied to clipboard.'
-          : status === 'error'
-            ? 'Could not copy the link. Please try again.'
-            : ''}
+        {status === 'copied' ? t('copiedLive') : status === 'error' ? t('errorLive') : ''}
       </span>
     </div>
   );

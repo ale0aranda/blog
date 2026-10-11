@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Heart } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 type PostLikeButtonProps = {
   locale: string;
@@ -23,6 +24,7 @@ export function PostLikeButton({ locale, slug }: PostLikeButtonProps) {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const busyRef = useRef(false);
+  const t = useTranslations('domains.writing.like');
 
   const endpoint = `/api/likes?${new URLSearchParams({
     locale,
@@ -54,7 +56,7 @@ export function PostLikeButton({ locale, slug }: PostLikeButtonProps) {
         }
       } catch {
         if (!controller.signal.aborted) {
-          setError('Likes are unavailable right now.');
+          setError(t('unavailable'));
         }
       }
     }
@@ -64,7 +66,7 @@ export function PostLikeButton({ locale, slug }: PostLikeButtonProps) {
     return () => {
       controller.abort();
     };
-  }, [endpoint]);
+  }, [endpoint, t]);
 
   async function handleLike() {
     if (!ready || busyRef.current) {
@@ -93,7 +95,7 @@ export function PostLikeButton({ locale, slug }: PostLikeButtonProps) {
       const result = (await response.json()) as LikesData;
       setData(result);
     } catch {
-      setError('Could not save your like. Try again.');
+      setError(t('saveError'));
     } finally {
       busyRef.current = false;
       setPending(false);
@@ -104,9 +106,9 @@ export function PostLikeButton({ locale, slug }: PostLikeButtonProps) {
     <div className="flex flex-col items-start gap-2">
       <button
         aria-busy={pending}
-        aria-label={data.liked ? 'Remove like' : 'Like this post'}
+        aria-label={data.liked ? t('remove') : t('like')}
         aria-pressed={data.liked}
-        className={`inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50 ${
+        className={`inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 disabled:cursor-not-allowed disabled:opacity-50 ${
           data.liked
             ? 'border-accent/30 bg-accent/10 text-accent'
             : 'border-border text-muted hover:bg-fg/5 hover:text-fg'
@@ -125,7 +127,7 @@ export function PostLikeButton({ locale, slug }: PostLikeButtonProps) {
         />
 
         <span className="font-mono text-xs tabular-nums">
-          {ready ? data.count.toLocaleString('en-US') : '—'}
+          {ready ? data.count.toLocaleString(locale) : '—'}
         </span>
       </button>
 

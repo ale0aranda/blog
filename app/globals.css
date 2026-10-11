@@ -196,34 +196,8 @@ body:has([data-reading-mode='zen']) .reading-chrome,
 }
 
 [data-reading-mode='zen'] .reading-content {
-  --reading-start: 0px;
-  --reading-end: 160px;
-
-  mask-image: linear-gradient(
-    to bottom,
-    rgb(0 0 0 / 16%) 0,
-    rgb(0 0 0 / 16%) calc(var(--reading-start) - 64px),
-    #000 var(--reading-start),
-    #000 var(--reading-end),
-    rgb(0 0 0 / 16%) calc(var(--reading-end) + 64px),
-    rgb(0 0 0 / 16%) 100%
-  );
-}
-
-[data-reading-mode='zen'] .reading-content:focus-within {
   mask-image: none;
-}
-
-::highlight(post-yellow) {
-  background-color: rgb(252 211 77 / 38%);
-}
-
-::highlight(post-green) {
-  background-color: rgb(110 231 183 / 35%);
-}
-
-::highlight(post-blue) {
-  background-color: rgb(125 211 252 / 38%);
+  -webkit-mask-image: none;
 }
 
 .post-highlight-toolbar {
@@ -235,4 +209,51 @@ body:has([data-reading-mode='zen']) .reading-chrome,
 .prose .post-highlight-toolbar {
   font-size: 0.875rem;
   line-height: 1;
+}
+
+[data-reading-mode='zen'] .reading-content .prose {
+  font-size: var(--reading-font-size, 18px);
+  line-height: 1.85;
+}
+
+[data-reading-mode='zen'] .reading-content .prose :where(p, li) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+[data-reading-mode='zen'] [data-reading-block] {
+  transition: opacity 220ms ease;
+}
+
+[data-reading-mode='zen'] [data-reading-block='active'] {
+  opacity: 1;
+}
+
+[data-reading-mode='zen'] [data-reading-block='muted'] {
+  opacity: 0.55;
+}
+
+[data-reading-mode='zen'] [data-reading-block]:hover,
+[data-reading-mode='zen'] [data-reading-block]:focus-within {
+  opacity: 1;
+}
+
+.reading-dock {
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reading-mode='zen'] [data-reading-block] {
+    transition: none;
+  }
+}
+
+@media print {
+  [data-reading-mode='zen'] .reading-dock {
+    display: none;
+  }
+
+  [data-reading-mode='zen'] [data-reading-block] {
+    opacity: 1;
+  }
 }

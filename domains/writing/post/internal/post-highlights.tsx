@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { Eraser } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { createPortal } from 'react-dom';
 
 const colors = ['yellow', 'green', 'blue'] as const;
@@ -36,12 +37,6 @@ const colorClasses: Record<Color, string> = {
   yellow: 'bg-amber-300',
   green: 'bg-emerald-300',
   blue: 'bg-sky-300'
-};
-
-const colorLabels: Record<Color, { es: string; en: string }> = {
-  yellow: { es: 'Amarillo', en: 'Yellow' },
-  green: { es: 'Verde', en: 'Green' },
-  blue: { es: 'Azul', en: 'Blue' }
 };
 
 function isAnnotation(value: unknown): value is Annotation {
@@ -140,8 +135,33 @@ export function PostHighlights({ children, locale, slug }: PostHighlightsProps) 
     vertical: true
   });
 
-  const spanish = locale === 'es';
+  const t = useTranslations('domains.writing.highlights');
   const storageKey = `post-highlights:v1:${locale}:${slug}`;
+
+  useEffect(() => {
+    const style = document.createElement('style');
+
+    style.setAttribute('data-post-highlights', '');
+    style.textContent = `
+      ::highlight(post-yellow) {
+        background-color: rgb(252 211 77 / 38%);
+      }
+
+      ::highlight(post-green) {
+        background-color: rgb(110 231 183 / 35%);
+      }
+
+      ::highlight(post-blue) {
+        background-color: rgb(125 211 252 / 38%);
+      }
+    `;
+
+    document.head.appendChild(style);
+
+    return () => {
+      style.remove();
+    };
+  }, []);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -334,7 +354,7 @@ export function PostHighlights({ children, locale, slug }: PostHighlightsProps) 
         && createPortal(
           <fieldset
             ref={toolbarRef}
-            aria-label={spanish ? 'Resaltar selección' : 'Highlight selection'}
+            aria-label={t('toolbar')}
             style={{
               left: toolbarPosition.left,
               top: toolbarPosition.top
@@ -349,7 +369,7 @@ export function PostHighlights({ children, locale, slug }: PostHighlightsProps) 
                   item.color === color && item.start <= selection.start && item.end >= selection.end
               );
 
-              const label = colorLabels[color][spanish ? 'es' : 'en'];
+              const label = t(`colors.${color}`);
 
               return (
                 <button
@@ -381,8 +401,8 @@ export function PostHighlights({ children, locale, slug }: PostHighlightsProps) 
 
             <button
               type="button"
-              aria-label={spanish ? 'Quitar resaltado' : 'Remove highlight'}
-              title={spanish ? 'Quitar resaltado' : 'Remove highlight'}
+              aria-label={t('remove')}
+              title={t('remove')}
               onPointerDown={(event) => event.preventDefault()}
               onClick={() => applyColor(null)}
               className="flex size-9 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface hover:text-fg focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
@@ -402,9 +422,7 @@ export function PostHighlights({ children, locale, slug }: PostHighlightsProps) 
           role="status"
           className="mt-3 text-muted text-sm"
         >
-          {spanish
-            ? 'El navegador no pudo guardar los resaltados.'
-            : 'The browser could not save your highlights.'}
+          {t('storageError')}
         </p>
       )}
     </>

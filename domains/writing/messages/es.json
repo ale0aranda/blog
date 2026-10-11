@@ -3,5 +3,38 @@
     "back": "Atrás",
     "copy": "Copiar",
     "copied": "Copiado"
+  },
+  "readingMode": {
+    "enter": "Enfocar",
+    "exit": "Salir",
+    "reading": "Lectura enfocada",
+    "smaller": "Reducir tamaño del texto",
+    "larger": "Aumentar tamaño del texto",
+    "controls": "Controles de lectura",
+    "progress": "Progreso de lectura"
+  },
+  "highlights": {
+    "toolbar": "Resaltar selección",
+    "remove": "Quitar resaltado",
+    "colors": {
+      "yellow": "Amarillo",
+      "green": "Verde",
+      "blue": "Azul"
+    },
+    "storageError": "El navegador no pudo guardar los resaltados."
+  },
+  "share": {
+    "share": "Compartir",
+    "copied": "Enlace copiado",
+    "retry": "Intentar de nuevo",
+    "copyAria": "Copiar enlace del artículo",
+    "copiedLive": "Enlace del artículo copiado al portapapeles.",
+    "errorLive": "No se pudo copiar el enlace. Inténtalo de nuevo."
+  },
+  "like": {
+    "like": "Me gusta este artículo",
+    "remove": "Quitar me gusta",
+    "unavailable": "Los me gusta no están disponibles ahora.",
+    "saveError": "No se pudo guardar tu me gusta. Inténtalo de nuevo."
   }
 }

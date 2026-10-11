@@ -3,5 +3,39 @@
     "back": "Back",
     "copy": "Copy",
     "copied": "Copied"
+  },
+  "readingMode": {
+    "enter": "Focus",
+    "exit": "Exit",
+    "reading": "Focused reading",
+    "focus": "Focus",
+    "smaller": "Decrease text size",
+    "larger": "Increase text size",
+    "controls": "Reading controls",
+    "progress": "Reading progress"
+  },
+  "highlights": {
+    "toolbar": "Highlight selection",
+    "remove": "Remove highlight",
+    "colors": {
+      "yellow": "Yellow",
+      "green": "Green",
+      "blue": "Blue"
+    },
+    "storageError": "The browser could not save your highlights."
+  },
+  "share": {
+    "share": "Share",
+    "copied": "Link copied",
+    "retry": "Try again",
+    "copyAria": "Copy post link",
+    "copiedLive": "Post link copied to clipboard.",
+    "errorLive": "Could not copy the link. Please try again."
+  },
+  "like": {
+    "like": "Like this post",
+    "remove": "Remove like",
+    "unavailable": "Likes are unavailable right now.",
+    "saveError": "Could not save your like. Try again."
   }
 }
