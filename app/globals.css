@@ -189,3 +189,50 @@ code[data-theme] span {
     animation: none;
   }
 }
+
+body:has([data-reading-mode='zen']) .reading-chrome,
+[data-reading-mode='zen'] .post-actions {
+  display: none;
+}
+
+[data-reading-mode='zen'] .reading-content {
+  --reading-start: 0px;
+  --reading-end: 160px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 16%) 0,
+    rgb(0 0 0 / 16%) calc(var(--reading-start) - 64px),
+    #000 var(--reading-start),
+    #000 var(--reading-end),
+    rgb(0 0 0 / 16%) calc(var(--reading-end) + 64px),
+    rgb(0 0 0 / 16%) 100%
+  );
+}
+
+[data-reading-mode='zen'] .reading-content:focus-within {
+  mask-image: none;
+}
+
+::highlight(post-yellow) {
+  background-color: rgb(252 211 77 / 38%);
+}
+
+::highlight(post-green) {
+  background-color: rgb(110 231 183 / 35%);
+}
+
+::highlight(post-blue) {
+  background-color: rgb(125 211 252 / 38%);
+}
+
+.post-highlight-toolbar {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+/* Evita que typography cambie el aspecto de la barra. */
+.prose .post-highlight-toolbar {
+  font-size: 0.875rem;
+  line-height: 1;
+}

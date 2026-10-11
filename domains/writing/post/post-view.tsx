@@ -10,7 +10,9 @@ import { rehypePlugins, remarkPlugins } from '../lib/plugins';
 import { getPostBySlug } from '../lib/posts';
 import { mdxComponents } from './internal/mdx-components';
 import { PostBackLink } from './internal/post-back-link';
+import { PostHighlights } from './internal/post-highlights';
 import { PostLikeButton } from './internal/post-like-button';
+import { PostReadingMode } from './internal/post-reading-mode';
 import { PostShareButton } from './internal/post-share-button';
 
 type PostViewProps = {
@@ -33,9 +35,11 @@ export function PostView({ locale, slug }: PostViewProps) {
     <>
       <JsonLd data={blogPostingJsonLd(post, locale)} />
 
-      <div className="mx-auto flex w-full max-w-2xl flex-col px-6 py-20">
-        <PostBackLink />
-
+      <PostReadingMode
+        key={`${locale}/${slug}`}
+        locale={locale}
+        backLink={<PostBackLink />}
+      >
         <FadeIn
           as="header"
           animate="mount"
@@ -64,19 +68,25 @@ export function PostView({ locale, slug }: PostViewProps) {
           animate="mount"
           className="prose prose-post max-w-none prose-pre:border prose-pre:border-border prose-pre:bg-surface"
         >
-          <MDXRemote
-            source={post.content}
-            components={mdxComponents}
-            options={{
-              mdxOptions: {
-                remarkPlugins,
-                rehypePlugins
-              }
-            }}
-          />
+          <PostHighlights
+            key={`highlights/${locale}/${slug}`}
+            locale={locale}
+            slug={slug}
+          >
+            <MDXRemote
+              source={post.content}
+              components={mdxComponents}
+              options={{
+                mdxOptions: {
+                  remarkPlugins,
+                  rehypePlugins
+                }
+              }}
+            />
+          </PostHighlights>
         </FadeIn>
 
-        <div className="mt-10 flex items-start gap-2 border-border border-t pt-5">
+        <div className="post-actions mt-10 flex items-start gap-2 border-border border-t pt-5">
           <PostLikeButton
             key={`${locale}/${slug}`}
             locale={locale}
@@ -85,7 +95,7 @@ export function PostView({ locale, slug }: PostViewProps) {
 
           <PostShareButton key={`share/${locale}/${slug}`} />
         </div>
-      </div>
+      </PostReadingMode>
     </>
   );
 }

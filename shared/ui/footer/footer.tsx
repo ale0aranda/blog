@@ -14,7 +14,7 @@ export function Footer() {
     <FadeIn
       animate="mount"
       as="footer"
-      className="mt-8 flex items-center justify-between gap-4 border-border border-t py-4"
+      className="reading-chrome mt-8 flex items-center justify-between gap-4 border-border border-t py-4"
     >
       <p className="whitespace-nowrap text-muted text-sm tracking-tight">
         {FOOTER_LOCATION}
