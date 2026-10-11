@@ -38,5 +38,10 @@
   },
   "tooltip": {
     "search": "Buscar ⌘K"
+  },
+  "music": {
+    "play": "Reproducir intro de 31 minutos",
+    "pause": "Pausar intro de 31 minutos",
+    "unavailable": "Audio no disponible"
   }
 }

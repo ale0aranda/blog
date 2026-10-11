@@ -13,6 +13,7 @@ import { FadeIn } from '@/shared/motion/components/fade-in';
 import { CommandPalette } from './command-palette';
 import { DockCommandButton } from './dock-command-button';
 import { DockLocaleToggle } from './dock-locale-toggle';
+import { DockMusicButton } from './dock-music-button';
 import { DockThemeMenu } from './dock-theme-menu';
 import { DockTooltip } from './dock-tooltip';
 import { dockButtonClass } from './styles';
@@ -39,7 +40,7 @@ export function Dock({ className }: DockProps) {
     <>
       <div
         className={cn(
-          'pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center pb-safe',
+          'reading-chrome pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center pb-safe',
           className
         )}
       >
@@ -69,6 +70,7 @@ export function Dock({ className }: DockProps) {
             </DockTooltip>
 
             <DockCommandButton onOpen={openCommand} />
+            <DockMusicButton />
             <DockLocaleToggle />
             <DockThemeMenu />
           </nav>
